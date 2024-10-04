@@ -26,7 +26,7 @@ class UserController extends Controller
             'email' => 'required|email|unique:users,email|',
             'phone' => 'required|numeric|digits_between:10,15',
             'password' => 'required|min:8|confirmed',
-            'img' => 'nullable|image|mimes:jpg,jpeg,png,gif', // Optional, valid image file
+            'img' => 'nullable|image|mimes:jpg,jpeg,png,gif', 
         ]);
        
         if (!is_dir(public_path('form/img/profile/'))) {
