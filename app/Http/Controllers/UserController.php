@@ -21,6 +21,13 @@ class UserController extends Controller
 
     public function signupData(Request $req)
     {
+        $req->validate([
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users,email|',
+            'phone' => 'required|numeric|digits_between:10,15',
+            'password' => 'required|min:8|confirmed',
+            'img' => 'nullable|image|mimes:jpg,jpeg,png,gif', // Optional, valid image file
+        ]);
        
         if (!is_dir(public_path('form/img/profile/'))) {
             mkdir(public_path('form/img/profile/'), 0777, true);
