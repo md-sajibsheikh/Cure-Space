@@ -17,11 +17,19 @@ class Admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        
-        if (Auth::user()->is_admin == '1') {
-            return $next($request);
+
+        if (Auth::check()) {
+            if (Auth::user()->is_admin == '1') {
+                return $next($request);
+            } elseif (Auth::user()->is_admin == '0') {
+                Alert::error('Oops!','Access Denied');
+                return redirect()->back();
+            }
+        } else { 
+            Alert::error('Oops!','Login your account');
+            return redirect()->route('login');
         }
-        Alert::error('Oops!', 'Access Denied');
-        return redirect()->back();
+
+        
     }
 }

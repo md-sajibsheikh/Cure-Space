@@ -91,11 +91,7 @@ Route::get('/contact/list', [ContactController::class, 'contactMe'])->name('cont
 Route::post('/appointment.data', [BookingController::class, 'bookingData'])->name('bookingData');
 Route::get('/booking-list', [BookingController::class, 'bookingList'])->name('bookingList');
 
-// Admin services
 
-Route::get('/service/add', [ServiceController::class, 'add_service'])->name('add.service');
-Route::post('/service/store', [ServiceController::class, 'service_store'])->name('service.store');
-Route::get('/service/list', [ServiceController::class, 'service_list'])->name('service.list');
 
 // services frontend
 
@@ -107,54 +103,59 @@ Route::get('/service/delete/{id}', [ServiceController::class, 'delete'])->name('
 
        
 
-//admin blog
-
-Route::get('add-blog', [BlogController::class, 'add_blog'])->name('add-blog');
-Route::post('blog-store', [BlogController::class, 'blog_store'])->name('blog-store');
-Route::get('all-blog', [BlogController::class, 'all_blog'])->name('all-blog');
-
-Route::get('edit-blog/{id}', [BlogController::class, 'edit_blog'])->name('edit-blog');
-Route::post('blog-update/{id}', [BlogController::class, 'blog_update'])->name('blog-update');
-Route::get('blog-delete/{id}', [BlogController::class, 'delete'])->name('blog-delete');
 
 
 
-//admin team
 
-Route::get('/add-team', [TeamController::class,'add_team'])->name('add.team');
-
-Route::post('/team-added', [TeamController::class,'team_added'])->name('teamAdded');
-
-
-Route::get('/team-list', [TeamController::class,'team_list'])->name('team.list');
-Route::get('/team-delete', [TeamController::class, 'team_delete'])->name('delete');
 
 //frontend team
 
 Route::get('/team-show', [TeamController::class, 'team_frontend']);
 
 
-//why chooose us
 
-
-Route::get('/add-choose', [WhyUsController::class, 'add_choose'])->name('add-choose');
-
-Route::post('/choose-store', [WhyUsController::class, 'choose_store'])->name('choose_store');
-
-Route::get('/all-choose', [WhyUsController::class, 'all_choose'])->name('all-choose');
-
-Route::get('/admin/why-us/edit/{id}', [WhyUsController::class, 'edit'])->name('edit');
-
-Route::post('/admin/why-us/update/{id}', [WhyUsController::class, 'update'])->name('choose_update');
-Route::get('/admin/why-us/delete/{id}', [WhyUsController::class, 'delete'])->name('whyus.detele');
 
 
 // Profile routes
 Route::middleware(['admin'])->group(function () {
-    Route::get('user/profile', [ProfileController::class, 'profile'])->name('profile');
-    Route::post('user/profile/update/{id}', [ProfileController::class, 'update'])->name('user.profile.update');
-    Route::post('/profile/update-password', [ProfileController::class, 'updatePassword'])->name('user.password.update');
+    Route::get('/admin', [DashboardController::class, 'admin'])->name('admin');
+
+    //profile
+    Route::get('profile', [ProfileController::class, 'profile'])->name('profile');
+    Route::post('admin/profile/update/{id}', [ProfileController::class, 'update'])->name('user.profile.update');
+    Route::post('admin/profile/update-password', [ProfileController::class, 'updatePassword'])->name('user.password.update');
+
+    // Admin services
+
+    Route::get('/service/add', [ServiceController::class, 'add_service'])->name('add.service');
+    Route::post('/service/store', [ServiceController::class, 'service_store'])->name('service.store');
+    Route::get('/service/list', [ServiceController::class, 'service_list'])->name('service.list');
+    
+    //admin blog
+
+    Route::get('add-blog', [BlogController::class, 'add_blog'])->name('add-blog');
+    Route::post('blog-store', [BlogController::class, 'blog_store'])->name('blog-store');
+    Route::get('all-blog', [BlogController::class, 'all_blog'])->name('all-blog');
+
+    Route::get('edit-blog/{id}', [BlogController::class, 'edit_blog'])->name('edit-blog');
+    Route::post('blog-update/{id}', [BlogController::class, 'blog_update'])->name('blog-update');
+    Route::get('blog-delete/{id}', [BlogController::class, 'delete'])->name('blog-delete');
+    //admin team
+
+    Route::get('/add-team', [TeamController::class, 'add_team'])->name('add.team');
+    Route::post('/team-added', [TeamController::class, 'team_added'])->name('teamAdded');
+    Route::get('/team-list', [TeamController::class, 'team_list'])->name('team.list');
+    Route::get('/team-delete', [TeamController::class, 'team_delete'])->name('delete');
+
+    //why chooose us
+    Route::get('/add-choose', [WhyUsController::class, 'add_choose'])->name('add-choose');
+    Route::post('/choose-store', [WhyUsController::class, 'choose_store'])->name('choose_store');
+    Route::get('/all-choose', [WhyUsController::class, 'all_choose'])->name('all-choose');
+    Route::get('/admin/why-us/edit/{id}', [WhyUsController::class, 'edit'])->name('edit');
+    Route::post('/admin/why-us/update/{id}', [WhyUsController::class, 'update'])->name('choose_update');
+    Route::get('/admin/why-us/delete/{id}', [WhyUsController::class, 'delete'])->name('whyus.detele');
 });
+
 
 
 
@@ -169,7 +170,6 @@ Route::middleware(['admin'])->group(function () {
 // dashboard
 
 
-Route::get('/dashboard', [DashboardController::class, 'admin'])->name('admin')->middleware('admin');
 
 
 // welcome
