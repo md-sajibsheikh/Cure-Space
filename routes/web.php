@@ -11,20 +11,25 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserBookingController;
 use App\Http\Controllers\UserContactController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WhyUsController;
 use Illuminate\Support\Facades\Route;
 
 
 //  user
 
-Route::get('/user/home', function(){
-    return view('user.pages.home');
-})->name('user');
+Route::middleware('user')->group(function () {
+    Route::get('/user/home', function () {
+        return view('user.pages.home');
+    })->name('user');
+    
 
-Route::get('/user/booking',[UserBookingController::class,'user_booking'])->name('user.booking');
-Route::get('/user/conact', [UserContactController::class, 'contact'])->name('user.contact');
+    Route::get('/user/profile', [UserProfileController::class, 'user_profile'])->name('user.profile');
 
 
+    Route::get('/user/booking', [UserBookingController::class, 'user_booking'])->name('user.booking');
+    Route::get('/user/contact', [UserContactController::class, 'contact'])->name('user.contact');
+});
 
 
 //  Frontend  form home controller
@@ -93,26 +98,17 @@ Route::get('/booking-list', [BookingController::class, 'bookingList'])->name('bo
 
 
 
-// services frontend
-
-Route::get('/service/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
-Route::post('/service/update/{id}', [ServiceController::class, 'service_update'])->name('service.update');
-Route::get('/service/delete/{id}', [ServiceController::class, 'delete'])->name('service.delete');
-
-
-
-       
-
-
-
-
-
 
 //frontend team
 
 Route::get('/team-show', [TeamController::class, 'team_frontend']);
 
 
+
+// admin services frontend
+Route::get('profile', [ProfileController::class, 'profile'])->name('profile');
+Route::post('admin/profile/update/{id}', [ProfileController::class, 'update'])->name('user.profile.update');
+Route::post('admin/profile/update-password', [ProfileController::class, 'updatePassword'])->name('user.password.update');
 
 
 
@@ -121,16 +117,20 @@ Route::middleware(['admin'])->group(function () {
     Route::get('/admin', [DashboardController::class, 'admin'])->name('admin');
 
     //profile
-    Route::get('profile', [ProfileController::class, 'profile'])->name('profile');
-    Route::post('admin/profile/update/{id}', [ProfileController::class, 'update'])->name('user.profile.update');
-    Route::post('admin/profile/update-password', [ProfileController::class, 'updatePassword'])->name('user.password.update');
 
     // Admin services
 
     Route::get('/service/add', [ServiceController::class, 'add_service'])->name('add.service');
     Route::post('/service/store', [ServiceController::class, 'service_store'])->name('service.store');
     Route::get('/service/list', [ServiceController::class, 'service_list'])->name('service.list');
-    
+
+
+    Route::get('/service/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
+    Route::post('/service/update/{id}', [ServiceController::class, 'service_update'])->name('service.update');
+    Route::get('/service/delete/{id}', [ServiceController::class, 'delete'])->name('service.delete');
+
+
+
     //admin blog
 
     Route::get('add-blog', [BlogController::class, 'add_blog'])->name('add-blog');
@@ -155,20 +155,6 @@ Route::middleware(['admin'])->group(function () {
     Route::post('/admin/why-us/update/{id}', [WhyUsController::class, 'update'])->name('choose_update');
     Route::get('/admin/why-us/delete/{id}', [WhyUsController::class, 'delete'])->name('whyus.detele');
 });
-
-
-
-
-
-
-
-
-
-
-
-
-// dashboard
-
 
 
 

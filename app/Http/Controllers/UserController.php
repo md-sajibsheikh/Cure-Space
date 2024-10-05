@@ -21,38 +21,38 @@ class UserController extends Controller
 
     public function signupData(Request $req)
     {
-        $req->validate([
-            'name' => 'required|string',
-            'email' => 'required|email|unique:users,email|',
-            'phone' => 'required|numeric|digits_between:10,15',
-            'password' => 'required|min:8|confirmed',
-            'img' => 'nullable|image|mimes:jpg,jpeg,png,gif', 
-        ]);
-       
-        if (!is_dir(public_path('form/img/profile/'))) {
-            mkdir(public_path('form/img/profile/'), 0777, true);
+        
+
+        // Create directory if not exists
+        $profileDir = public_path('form/img/profile/');
+        if (!is_dir($profileDir)) {
+            mkdir($profileDir, 0777, true);
         }
 
-        $data = [];
+        // Prepare data
+        $data = [
+            'name' => $req->name,
+            'email' => $req->email,
+            'phone' => $req->phone,
+            'password' => bcrypt($req->password),
+        ];
 
+        // Check if image is uploaded
         if ($req->hasFile('img')) {
             $image = $req->file('img');
-            $name = $image->getClientOriginalName();
-            $imageName = time() . "_" . $name;
-            $imagePath = 'form/img/profile/' . $imageName;
-            $image->move(public_path('form/img/profile/'), $imageName);
-            $data['img'] = $imagePath;
+            $imageName = time() . "_" . $image->getClientOriginalName();
+            $image->move($profileDir, $imageName);
+            $data['img'] = 'form/img/profile/' . $imageName;
         } else {
-            $data['img'] = 'form/img/profile/default.png'; 
+            $data['img'] = 'form/img/profile/default.png';
         }
-        $data['name'] = $req->name;
-        $data['email'] = $req->email;
-        $data['phone'] = $req->phone;
-        $data['password'] = bcrypt($req->password); 
-        
+
+        // Store user in DB
         User::create($data);
+
+        // Success message
         Alert::success('Success!', 'Your account has been created');
-        return redirect()->route('login'); 
+        return redirect()->route('login');
     }
 
     public function loginCheck(Request $req)

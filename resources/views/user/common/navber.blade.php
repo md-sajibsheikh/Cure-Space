@@ -17,7 +17,7 @@
                     <span class="d-none d-lg-inline-flex">{{ Auth::user()->name }}</span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-end  border-1 rounded-0 rounded-bottom m-0">
-                    <a href="#" class="dropdown-item">My Profile</a>
+                    <a href="{{route('user.profile')}}" class="dropdown-item">My Profile</a>
                     <li>
                         <div class="dropdown-divider my-1"></div>
                     </li>
