@@ -19,6 +19,8 @@ class BookingController extends Controller
         $data['department'] = $req->department;
         $data['comments'] = $req->comments;
 
+
+
         Booking::create($data);
 
         Alert::success('Success', 'Your booking is confirmed');
@@ -28,7 +30,9 @@ class BookingController extends Controller
 
     public function bookingList()
     {
+       
         $data = Booking::get();
+
         return view('backend.pages.bookingList', ['Book' => $data]);
     }
 }

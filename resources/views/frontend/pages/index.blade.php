@@ -193,6 +193,7 @@
                             <div class="col-xl-6">
                                 <input type="text" class="form-control py-3 border-primary bg-transparent text-white" placeholder="First Name" name="name">
                             </div>
+
                             <div class="col-xl-6">
                                 <input type="email" class="form-control py-3 border-primary bg-transparent text-white" placeholder="Email" name="email">
                             </div>

@@ -7,6 +7,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\SiteSettingsController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserBookingController;
 use App\Http\Controllers\UserContactController;
@@ -109,6 +110,9 @@ Route::get('/team-show', [TeamController::class, 'team_frontend']);
 Route::get('profile', [ProfileController::class, 'profile'])->name('profile');
 Route::post('admin/profile/update/{id}', [ProfileController::class, 'update'])->name('user.profile.update');
 Route::post('admin/profile/update-password', [ProfileController::class, 'updatePassword'])->name('user.password.update');
+
+
+Route::get('admin/site-settings', [SiteSettingsController::class, 'siteSettings'])->name('site.settings');
 
 
 

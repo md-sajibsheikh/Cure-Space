@@ -106,7 +106,7 @@
                         <button class="menu-link flex justify-between items-center w-3/4" onclick="toggleDropdown(this)">
                             <div class="flex items-center">
                                 <img src="{{ asset('backend/assets/img/icons/team/blog.png') }}" width="40px" alt="">
-                                <div class="text-truncate pl-1 mt-2 fw-bold">Our Blog</div>
+                                <div class="text-truncate pl-1 mt-0 fw-bold">Our Blog</div>
                             </div>
                             <i class="fas fa-caret-down"></i>
                         </button>
@@ -118,6 +118,26 @@
                             <a href="{{route('all-blog')}}" class="menu-link">
                                 <img src="{{ asset('backend/assets/img/icons/team/all-blog.png') }}" width="32px" alt="team.png">
                                 <div class="text-truncate pl-1 mt-2 fw-bold" data-i18n="Get in Touch">All Blog</div>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="menu-item">
+                        <button class="menu-link flex justify-between items-center w-3/4" onclick="toggleDropdown(this)">
+                            <div class="flex items-center">
+                                <img src="{{ asset('backend/assets/img/icons/team/blog.png') }}" width="40px" alt="">
+                                <div class="text-truncate pl-1 mt-0 fw-bold">Settings</div>
+                            </div>
+                            <i class="fas fa-caret-down"></i>
+                        </button>
+                        <div class="hidden dropdown-container">
+                            <a href="{{route('profile')}}" class="menu-link">
+                                <img src="{{ asset('backend/assets/img/icons/team/add-blog.png') }}" width="35px" alt="">
+                                <div class="text-truncate pl-1 mt-2 fw-bold" data-i18n="Get in Touch">Profile</div>
+                            </a>
+                            <a href="{{route('site.settings')}}" class="menu-link">
+                                <img src="{{ asset('backend/assets/img/icons/team/all-blog.png') }}" width="32px" alt="team.png">
+                                <div class="text-truncate pl-1 mt-2 fw-bold" data-i18n="Get in Touch">Site Settings</div>
                             </a>
                         </div>
                     </li>

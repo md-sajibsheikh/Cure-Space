@@ -58,7 +58,7 @@
                 <div class="mt-4 relative">
                     <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
                     <input type="password" name="password" id="password" required class="w-full px-4 py-2 mt-1 text-gray-700 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 pr-12">
-                    <button type="button" class="absolute  inset-y-0 mt-4 right-0 flex items-center pr-3" onclick="togglePassword('password')">
+                    <button type="button" class="absolute inset-y-0 mt-4 right-0 flex items-center pr-3" onclick="togglePassword('password')">
                         <i id="password-icon" class="fas fa-eye cursor-pointer"></i>
                     </button>
                     @error('password')
@@ -67,16 +67,15 @@
                 </div>
 
                 <div class="mt-4 relative">
-                    <label for="confirm_password" class="block text-sm font-medium text-gray-700">Confirm Password</label>
-                    <input type="password" name="confirm_password" id="confirm_password" required class="w-full px-4 py-2 mt-1 text-gray-700 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 pr-12">
-                    <button type="button" class="absolute inset-y-0 mt-4 right-0 flex items-center pr-3" onclick="togglePassword('confirm_password')">
-                        <i id="confirm-password-icon" class="fas fa-eye cursor-pointer"></i>
+                    <label for="password_confirmation" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                    <input type="password" name="password_confirmation" id="password_confirmation" required class="w-full px-4 py-2 mt-1 text-gray-700 border border-gray-300 rounded-lg focus:ring-green-500 focus:border-green-500 pr-12">
+                    <button type="button" class="absolute inset-y-0 mt-4 right-0 flex items-center pr-3" onclick="togglePassword('password_confirmation')">
+                        <i id="password_confirmation-icon" class="fas fa-eye cursor-pointer"></i>
                     </button>
-                    @error('confirm_password')
+                    @error('password_confirmation')
                     <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                     @enderror
                 </div>
-
 
                 <button type="submit" class="w-full px-4 py-2 mt-6 font-semibold text-white bg-green-500 rounded-lg hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">Signup</button>
             </form>

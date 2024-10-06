@@ -26,6 +26,7 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Phone</th>
+                        <th>User Name</th>
                         <th>Gender</th>
                         <th>Date</th>
                         <th>Department</th>
@@ -41,6 +42,10 @@
                         <td>{{$data->name}}</td>
                         <td>{{$data->email}}</td>
                         <td>{{$data->phone}}</td>
+                        <!-- Check if the user_rel exists to avoid errors -->
+                        <th>
+                            
+                        </th>
                         <td>{{$data->gender}}</td>
                         <td>{{$data->date}}</td>
                         <td>{{$data->department}}</td>
