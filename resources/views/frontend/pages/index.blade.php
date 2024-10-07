@@ -68,7 +68,7 @@
             </div>
             @endforeach
 
-            
+
         </div>
     </div>
 </div>
@@ -165,7 +165,7 @@
                                     <h5 class="mb-2"><i class="fa fa-check text-primary me-2"></i> Body Relaxation</h5>
                                     <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et deserunt qui cupiditate veritatis enim ducimus.</p>
                                 </div>
-                                
+
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -185,6 +185,8 @@
                     <h1 class="display-5 mb-4">Get Appointment</h1>
                     <form action="{{route('bookingData')}}" method="post">
                         @csrf
+
+                        <input type="text" name="user_id" value="{{Auth::user()->id ?? ''}}">
                         <div class="row gy-3 gx-4">
                             <div class="col-xl-6">
                                 <input type="text" class="form-control py-3 border-primary bg-transparent text-white" placeholder="First Name" name="name">

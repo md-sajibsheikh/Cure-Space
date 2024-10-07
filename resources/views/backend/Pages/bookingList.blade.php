@@ -22,9 +22,10 @@
                     <th class="py-3 px-4 bg-gray-100 border-b border-gray-200 text-left text-sm font-semibold text-gray-700">Date</th>
                     <th class="py-3 px-4 bg-gray-100 border-b border-gray-200 text-left text-sm font-semibold text-gray-700">Department</th>
                     <th class="py-3 px-4 bg-gray-100 border-b border-gray-200 text-left text-sm font-semibold text-gray-700">Comments</th>
+                    <th class="py-3 px-4 bg-gray-100 border-b border-gray-200 text-left text-sm font-semibold text-gray-700">User id</th>
                     <th class="py-3 px-4 bg-gray-100 border-b border-gray-200 text-left text-sm font-semibold text-gray-700">Status</th>
                     <th class="py-3 px-4 bg-gray-100 border-b border-gray-200 text-left text-sm font-semibold text-gray-700">Action</th>
-                </tr> 
+                </tr>
             </thead>
             <tbody>
                 @foreach($Book as $data)
@@ -37,6 +38,7 @@
                     <td class="py-4 px-4">{{$data->date}}</td>
                     <td class="py-4 px-4">{{$data->department}}</td>
                     <td class="py-4 px-4">{{$data->comments}}</td>
+                    <td class="py-4 px-4">{{$data->user->name}}</td>
                     <td class="py-4 px-4 text-green-500">{{$data->status}}</td>
                     <td class="py-7 px-4 flex space-x-5">
                         <i class="fa-regular fa-calendar-check text-blue-500 cursor-pointer" title="View Details"></i>

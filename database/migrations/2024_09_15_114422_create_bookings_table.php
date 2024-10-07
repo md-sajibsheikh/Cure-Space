@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('department');
             $table->text('comments');
             $table->string('status')->default('pending');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();
         });
     }

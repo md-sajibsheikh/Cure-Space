@@ -120,6 +120,7 @@ Route::get('admin/setting/pages/home', [HomeUpdateController::class, 'navbarForm
 Route::post('admin/setting/pages/home-update', [HomeUpdateController::class, 'datastore'])->name('datastore');
 
 Route::get('admin/setting/pages/about', [AboutUpdateController::class, 'aboutForm'])->name('site.about');
+Route::post('admin/setting/pages/about-update', [AboutUpdateController::class, 'aboutstore'])->name('aboutstore');
 
 
 // Profile routes

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Booking;
+use App\Models\User;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -18,6 +19,7 @@ class BookingController extends Controller
         $data['date'] = $req->date;
         $data['department'] = $req->department;
         $data['comments'] = $req->comments;
+        $data['user_id'] = $req->user_id;
 
 
 
@@ -31,8 +33,10 @@ class BookingController extends Controller
     public function bookingList()
     {
        
-        $data = Booking::get();
+        $data = Booking::with('user')->get();
 
-        return view('backend.pages.bookingList', ['Book' => $data]);
+        
+
+       return view('backend.pages.bookingList', ['Book' => $data]);
     }
 }

@@ -43,9 +43,8 @@
                         <td>{{$data->email}}</td>
                         <td>{{$data->phone}}</td>
                         <!-- Check if the user_rel exists to avoid errors -->
-                        <th>
-                            
-                        </th>
+                        <th>{{$data->user->name}}</th>
+
                         <td>{{$data->gender}}</td>
                         <td>{{$data->date}}</td>
                         <td>{{$data->department}}</td>

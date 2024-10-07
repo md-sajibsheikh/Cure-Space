@@ -11,8 +11,36 @@ class AboutUpdateController extends Controller
     {
         $data = AboutUpdate::first() ?: [];
 
-        return view('backend.Pages.setting.aboutupdate', ['NavbarView' => $data]);
+        return view('backend.Pages.setting.aboutupdate', ['about' => $data]);
     }
 
+    }
+
+
+    public function aboutstore(Request $req)
+    {
+        $data = [
+            'address' => $req->address,
+            'phone' => $req->phone,
+            'phone1' => $req->phone1,
+            'email' => $req->email,
+            'email1' => $req->email1,
+            'facebook' => $req->facebook,
+            'linkedin' => $req->linkedin,
+            'instagram' => $req->instagram,
+            'contactus' => $req->contactus,
+            'getintouch' => $req->getintouch,
+        ];
+
+       
+        $datas = AboutUpdate::first();
+        if ($datas) {
+            $datas->update($data);
+
+        } else {
+            AboutUpdate::create($data);
+        }
+
+        return redirect()->back();
     }
 }
