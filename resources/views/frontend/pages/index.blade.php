@@ -68,9 +68,7 @@
             </div>
             @endforeach
 
-            <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.2s">
-                <a class="btn btn-primary rounded-pill text-white py-3 px-5" href="#">Services More</a>
-            </div>
+            
         </div>
     </div>
 </div>
@@ -102,7 +100,7 @@
                         <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Duis aute irure dolor in reprehenderit in voluptate.</p>
                         <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     </div>
-                    <a href="#" class="btn btn-primary rounded-pill text-white py-3 px-5">Discover More</a>
+                    <a href="{{url('/about')}}" class="btn btn-primary rounded-pill text-white py-3 px-5">Discover More</a>
                 </div>
             </div>
         </div>
@@ -160,16 +158,14 @@
                         <div class="col-sm-6">
                             <div class="d-flex flex-column h-100">
                                 <div class="mb-4">
-                                    <h5 class="mb-3"><i class="fa fa-check text-primary me-2"></i> Body Relaxation</h5>
+                                    <h5 class="mb-3 mt-3"><i class="fa fa-check text-primary me-2"></i> Body Relaxation</h5>
                                     <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et deserunt qui cupiditate veritatis enim ducimus.</p>
                                 </div>
-                                <div class="mb-4">
-                                    <h5 class="mb-3"><i class="fa fa-check text-primary me-2"></i> Body Relaxation</h5>
+                                <div class="mb-4 mt-3">
+                                    <h5 class="mb-2"><i class="fa fa-check text-primary me-2"></i> Body Relaxation</h5>
                                     <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et deserunt qui cupiditate veritatis enim ducimus.</p>
                                 </div>
-                                <div class="text-start mb-4">
-                                    <a href="#" class="btn btn-primary rounded-pill text-white py-3 px-5">More Details</a>
-                                </div>
+                                
                             </div>
                         </div>
                         <div class="col-sm-6">

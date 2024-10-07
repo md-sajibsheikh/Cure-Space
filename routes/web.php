@@ -1,10 +1,13 @@
 <?php
 
+use App\Http\Controllers\AboutUpdateController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomeUpdateController;
+use App\Http\Controllers\logoUpdateController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SiteSettingsController;
@@ -106,14 +109,17 @@ Route::get('/team-show', [TeamController::class, 'team_frontend']);
 
 
 
-// admin services frontend
+// admin services frontend 
 Route::get('profile', [ProfileController::class, 'profile'])->name('profile');
 Route::post('admin/profile/update/{id}', [ProfileController::class, 'update'])->name('user.profile.update');
 Route::post('admin/profile/update-password', [ProfileController::class, 'updatePassword'])->name('user.password.update');
 
 
-Route::get('admin/site-settings', [SiteSettingsController::class, 'siteSettings'])->name('site.settings');
 
+Route::get('admin/setting/pages/home', [HomeUpdateController::class, 'navbarForm'])->name('site.home');
+Route::post('admin/setting/pages/home-update', [HomeUpdateController::class, 'datastore'])->name('datastore');
+
+Route::get('admin/setting/pages/about', [AboutUpdateController::class, 'aboutForm'])->name('site.about');
 
 
 // Profile routes

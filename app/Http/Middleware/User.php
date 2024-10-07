@@ -19,19 +19,16 @@ class User
 */
 public function handle(Request $request, Closure $next): Response
 {
-// Check if user is authenticated
-if (Auth::check()) {
-// Check if the authenticated user is not an admin
-if (Auth::user()->is_admin == 0) {
-return $next($request); // Allow access to non-admin users
-} elseif (Auth::user()->is_admin == 1) {
-Alert::error('Oops!', 'Access Denied'); // Show alert for admin
-return redirect()->back(); // Redirect admin users
-}
-} else {
-// If user is not authenticated, redirect to login
-Alert::error('Oops!', 'Please log in to your account');
-return redirect()->route('login');
-}
-}
+        if (Auth::check()) {
+            if (Auth::user()->is_admin == '0') {
+                return $next($request);
+            } elseif (Auth::user()->is_admin == '1') {
+                Alert::error('Oops!', 'Access Denied');
+                return redirect()->back();
+            }
+        } else {
+            Alert::error('Oops!', 'Login your account');
+            return redirect()->route('login');
+        }
+    }
 }
