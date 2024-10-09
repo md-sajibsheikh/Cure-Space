@@ -43,7 +43,6 @@
                         <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Duis aute irure dolor in reprehenderit in voluptate.</p>
                         <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     </div>
-                    <a href="#" class="btn btn-primary rounded-pill text-white py-3 px-5">Discover More</a>
                 </div>
             </div>
         </div>
@@ -269,7 +268,6 @@
                 </div>
             </div>
             <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.2s">
-                <a href="#" class="btn btn-primary rounded-pill text-white py-3 px-5">More Details</a>
             </div>
         </div>
     </div>

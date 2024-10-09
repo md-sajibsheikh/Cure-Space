@@ -4,6 +4,7 @@ use App\Http\Controllers\AboutUpdateController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactUpdateController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeUpdateController;
@@ -124,10 +125,19 @@ Route::post('admin/profile/update-password', [ProfileController::class, 'updateP
 Route::get('admin/setting/pages/home', [HomeUpdateController::class, 'navbarForm'])->name('site.home');
 Route::post('admin/setting/pages/home-update', [HomeUpdateController::class, 'datastore'])->name('datastore');
 
-Route::get('admin/setting/pages/about', [AboutUpdateController::class, 'aboutForm'])->name('site.about');
-Route::post('admin/setting/pages/about-update', [AboutUpdateController::class, 'aboutstore'])->name('aboutstore');
+Route::get('admin/setting/pages/contact', [ContactUpdateController::class, 'contact'])->name('site.contact');
+Route::post('admin/setting/pages/contact-update', [ContactUpdateController::class, 'contactstore'])->name('contactstore');
+
+//site.aboutstore
 
 
+Route::get('admin/setting/pages/about', [AboutUpdateController::class, 'about'])->name('site.about');
+
+
+Route::post('admin/setting/pages/about-update', [AboutUpdateController::class, 'aboutstore'])->name('site.aboutstore');
+
+
+ 
 // Profile routes
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin', [DashboardController::class, 'admin'])->name('admin');

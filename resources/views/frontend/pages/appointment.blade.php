@@ -31,12 +31,11 @@
                                     <h5 class="mb-3"><i class="fa fa-check text-primary me-2"></i> Body Relaxation</h5>
                                     <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et deserunt qui cupiditate veritatis enim ducimus.</p>
                                 </div>
-                                <div class="mb-4">
+                                <div class="mb-4 mt-2">
                                     <h5 class="mb-3"><i class="fa fa-check text-primary me-2"></i> Body Relaxation</h5>
                                     <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et deserunt qui cupiditate veritatis enim ducimus.</p>
                                 </div>
                                 <div class="text-start mb-4">
-                                    <a href="#" class="btn btn-primary rounded-pill text-white py-3 px-5">More Details</a>
                                 </div>
                             </div>
                         </div>

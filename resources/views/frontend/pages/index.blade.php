@@ -61,7 +61,6 @@
                         <div class="service-content-inner">
                             <h5 class="mb-4">{{$service->service_name}}</h5>
                             <p class="mb-4">{{$service->title}}</p>
-                            <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-2">Read More</a>
                         </div>
                     </div>
                 </div>
@@ -100,7 +99,6 @@
                         <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Duis aute irure dolor in reprehenderit in voluptate.</p>
                         <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Velit esse cillum dolore eu fugiat nulla pariatur.</p>
                     </div>
-                    <a href="{{url('/about')}}" class="btn btn-primary rounded-pill text-white py-3 px-5">Discover More</a>
                 </div>
             </div>
         </div>
@@ -398,7 +396,6 @@
 
                         <a href="#" class="h4">{{$data->title}}</a>
                         <p class="my-4">{{$data->subtitle}}</p>
-                        <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-1">Read More</a>
                     </div>
                 </div>
             </div>
