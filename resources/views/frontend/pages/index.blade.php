@@ -186,7 +186,7 @@
                     <form action="{{route('bookingData')}}" method="post">
                         @csrf
 
-                        <input type="text" name="user_id" value="{{Auth::user()->id ?? ''}}">
+                        <input type="hidden" name="user_id" value="{{Auth::user()->id ?? ''}}">
                         <div class="row gy-3 gx-4">
                             <div class="col-xl-6">
                                 <input type="text" class="form-control py-3 border-primary bg-transparent text-white" placeholder="First Name" name="name">

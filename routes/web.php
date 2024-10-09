@@ -101,6 +101,11 @@ Route::post('/appointment.data', [BookingController::class, 'bookingData'])->nam
 Route::get('/booking-list', [BookingController::class, 'bookingList'])->name('bookingList');
 
 
+Route::post('/admin/bookingList/accept/{id}', [BookingController::class, 'accept'])->name('posts.accept');
+Route::post('/admin/bookingList/reject{id}', [BookingController::class, 'reject'])->name('posts.reject');
+
+
+
 
 
 //frontend team

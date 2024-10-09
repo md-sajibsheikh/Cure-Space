@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 
-<body class="bg-gradient-to-r from-purple-400 to-blue-500 flex items-center justify-center min-h-screen">
+<body class=" flex items-center bg-gray-100 justify-center min-h-screen">
     @include('sweetalert::alert')
 
-    <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-md">
-        <h2 class="text-2xl font-bold text-center text-gray-800">Login to CureSpace</h2>
+    <div class="w-full max-w-md p-8   space-y-6 bg-white rounded-lg shadow-lg">
+        <h2 class="text-2xl font-bold text-center  text-gray-800">Login to CureSpace</h2>
         <form action="{{route('login.check')}}" method="POST">
             @csrf
 
@@ -48,11 +48,11 @@
             </div>
 
             <button type="submit"
-                class="w-full px-4 py-2 mt-6 font-semibold text-white bg-purple-600 rounded-lg hover:bg-purple-700">Login</button>
+                class="w-full px-4 py-2 mt-6 font-semibold text-white bg-sky-400 rounded-lg">Login</button>
         </form>
 
         <p class="text-sm text-center text-gray-600">Don't have an account? <a href="{{route('signup')}}"
-                class="text-purple-500 hover:underline">Sign up</a></p>
+                class="text-sky-500 hover:underline">Sign up</a></p>
     </div>
 
     <!-- Password Toggle Script -->

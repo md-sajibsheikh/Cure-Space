@@ -39,4 +39,23 @@ class BookingController extends Controller
 
        return view('backend.pages.bookingList', ['Book' => $data]);
     }
+
+    public function accept($id)
+    {
+        $post = Booking::findOrFail($id);
+        $post->status = 'accepted';
+        $post->save();
+
+        return redirect()->back();
+    }
+
+    // admin status rejected 
+    public function reject($id)
+    {
+        $post = Booking::findOrFail($id);
+        $post->status = 'rejected';
+        $post->save();
+
+        return redirect()->back();
+    }
 }
