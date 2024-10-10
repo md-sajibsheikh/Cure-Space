@@ -18,7 +18,6 @@ class HomeController extends Controller
         $blogs = Blog::get(); // Blog data
         $whyus = WhyUs::get(); // Whyus data
         $homeupdate = HomeUpdate::get(); // homeupdate data
-       
 
         return view('frontend.pages.index', [
             'data' => $services,

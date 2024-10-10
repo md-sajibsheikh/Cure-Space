@@ -6,6 +6,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContactUpdateController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FrontendConteroller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeUpdateController;
 use App\Http\Controllers\logoUpdateController;
@@ -18,6 +19,7 @@ use App\Http\Controllers\UserContactController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\WhyUsController;
+use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
 
@@ -27,7 +29,7 @@ Route::middleware('user')->group(function () {
     Route::get('/user/home', function () {
         return view('user.pages.home');
     })->name('user');
-    
+
 
     Route::get('/user/profile', [UserProfileController::class, 'user_profile'])->name('user.profile');
 
@@ -39,41 +41,25 @@ Route::middleware('user')->group(function () {
 
 //  Frontend  form home controller
 
-Route::get('/',[HomeController::class,'home'])->name('index');
+Route::get('/', [HomeController::class, 'home'])->name('index');
 
-Route::get('/about', function () {
-    return view('frontend.pages.about');
-})->name('about');
+Route::get('/about', [FrontendConteroller::class, 'about'])->name('about');
 
-Route::get('/appointment', function () {
-    return view('frontend.pages.appointment');
-})->name('appointment');
+Route::get('/appointment', [FrontendConteroller::class, 'appointment'])->name('appointment');
 
-Route::get('/blog', function () {
-    return view('frontend.pages.blog');
-})->name('blog');
+Route::get('/blog', [FrontendConteroller::class, 'blog'])->name('blog');
 
-Route::get('/contact', function () {
-    return view('frontend.pages.contact');
-})->name('contact');
+Route::get('/contact', [FrontendConteroller::class, 'contact'])->name('contact');
 
 
-Route::get('/feature', function () {
-    return view('frontend.pages.feature');
-})->name('feature');
+Route::get('/feature', [FrontendConteroller::class, 'feature'])->name('feature');
 
 
-Route::get('/service', function () {
-    return view('frontend.pages.service');
-})->name('service');
+Route::get('/service', [FrontendConteroller::class, 'service'])->name('service');
 
-Route::get('/team', function () {
-    return view('frontend.pages.team');
-})->name('team');
+Route::get('/team', [FrontendConteroller::class, 'team'])->name('team');
 
-Route::get('/testimonial', function () {
-    return view('frontend.pages.testimonial');
-})->name('testimonial');
+Route::get('/testimonial', [FrontendConteroller::class, 'testimonial'])->name('testimonial');
 
 // form
 
@@ -140,7 +126,7 @@ Route::get('admin/setting/pages/about', [AboutUpdateController::class, 'about'])
 Route::post('admin/setting/pages/about-update', [AboutUpdateController::class, 'aboutstore'])->name('site.aboutstore');
 
 
- 
+
 // Profile routes
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin', [DashboardController::class, 'admin'])->name('admin');
