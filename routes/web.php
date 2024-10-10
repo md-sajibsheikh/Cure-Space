@@ -6,6 +6,7 @@ use App\Http\Controllers\BookingController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\ContactUpdateController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FeedbackController;
 use App\Http\Controllers\FrontendConteroller;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\HomeUpdateController;
@@ -33,10 +34,24 @@ Route::middleware('user')->group(function () {
 
     Route::get('/user/profile', [UserProfileController::class, 'user_profile'])->name('user.profile');
 
+//feedback
+    Route::get('/user/feedbackd', [FeedbackController::class, 'feedback'])->name('user.feedback');
+    Route::post('/user/feedbacked', [FeedbackController::class, 'store'])->name('feedback.store');
+    
+
 
     Route::get('/user/booking', [UserBookingController::class, 'user_booking'])->name('user.booking');
     Route::get('/user/contact', [UserContactController::class, 'contact'])->name('user.contact');
 });
+
+
+Route::get('/admin/feedback.list', [FeedbackController::class, 'feedback_list'])->name('feedback.list');
+Route::get('/feedback/{id}', [FeedbackController::class, 'destroy'])->name('feedback.destroy');
+
+
+
+
+
 
 
 //  Frontend  form home controller

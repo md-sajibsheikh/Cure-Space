@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\AboutUpdate;
 use App\Models\Blog;
+use App\Models\ContactUpdate;
 use App\Models\HomeUpdate;
 use App\Models\Service;
 use App\Models\TeamAdded;
@@ -18,6 +20,9 @@ class HomeController extends Controller
         $blogs = Blog::get(); // Blog data
         $whyus = WhyUs::get(); // Whyus data
         $homeupdate = HomeUpdate::get(); // homeupdate data
+        $contact = ContactUpdate::get(); // homeupdate data
+    $about= AboutUpdate::get();
+        
 
         return view('frontend.pages.index', [
             'data' => $services,
@@ -25,6 +30,9 @@ class HomeController extends Controller
             'blog' => $blogs,
             'whyus' => $whyus,
             'home' => $homeupdate,
+            'contactdata' => $contact,
+            'about' => $about,
+
             
         ]);
     }

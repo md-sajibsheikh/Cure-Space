@@ -18,12 +18,6 @@ public function aboutstore(Request $request)
 {
 
 
-        $data = [
-            'site_name' => $request->site_name,
-            'subtitle' => $request->subtitle,
-            'title' => $request->title,
-            'description' => $request->description,
-        ];
         if (!is_dir(public_path('/backend/assets/img/about'))) {
             mkdir(public_path('/backend/assets/img/about'), 0777, true);
         }

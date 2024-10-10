@@ -26,54 +26,26 @@
             <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti amet at atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia voluptas maxime veniam necessitatibus saepe in ab? Repellat!</p>
         </div>
         <div class="row g-4 justify-content-center">
+            @foreach($blog as $data)
             <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="blog-item rounded">
                     <div class="blog-img">
-                        <img src="frontend/img/blog-1.jpg" class="img-fluid w-100" alt="Image">
+                        <img src="{{ asset($data->img) }}" class="img-fluid w-100" alt="Image">
                     </div>
                     <div class="blog-centent p-4">
                         <div class="d-flex justify-content-between mb-4">
-                            <p class="mb-0 text-muted"><i class="fa fa-calendar-alt text-primary"></i> 01 Jan 2045</p>
-                            <a href="#" class="text-muted"><span class="fa fa-comments text-primary"></span> 3 Comments</a>
+                            <p class="mb-0 text-muted">
+                                <i class="fa fa-calendar-alt text-primary"></i>
+                                {{ \Carbon\Carbon::parse($data->date)->format('d-M-Y') }}
+                            </p>
                         </div>
-                        <a href="#" class="h4">Remove back pain while working on a physio</a>
-                        <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium hic consequatur beatae architecto,</p>
-                        <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-1">Read More</a>
+
+                        <a href="#" class="h4">{{$data->title}}</a>
+                        <p class="my-4">{{$data->subtitle}}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="blog-item rounded">
-                    <div class="blog-img">
-                        <img src="frontend/img/blog-2.jpg" class="img-fluid w-100" alt="Image">
-                    </div>
-                    <div class="blog-centent p-4">
-                        <div class="d-flex justify-content-between mb-4">
-                            <p class="mb-0 text-muted"><i class="fa fa-calendar-alt text-primary"></i> 01 Jan 2045</p>
-                            <a href="#" class="text-muted"><span class="fa fa-comments text-primary"></span> 3 Comments</a>
-                        </div>
-                        <a href="#" class="h4">Benefits of a weekly physiotherapy session</a>
-                        <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium hic consequatur beatae architecto,</p>
-                        <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-1">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-4 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="blog-item rounded">
-                    <div class="blog-img">
-                        <img src="frontend/img/blog-3.jpg" class="img-fluid w-100" alt="Image">
-                    </div>
-                    <div class="blog-centent p-4">
-                        <div class="d-flex justify-content-between mb-4">
-                            <p class="mb-0 text-muted"><i class="fa fa-calendar-alt text-primary"></i> 01 Jan 2045</p>
-                            <a href="#" class="text-muted"><span class="fa fa-comments text-primary"></span> 3 Comments</a>
-                        </div>
-                        <a href="#" class="h4">Regular excercise can slow ageing process</a>
-                        <p class="my-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium hic consequatur beatae architecto,</p>
-                        <a href="#" class="btn btn-primary rounded-pill text-white py-2 px-4 mb-1">Read More</a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

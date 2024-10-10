@@ -24,20 +24,19 @@
                     <td class="py-2 px-4 border break-words">{{ $data->title }}</td>
                     <td class="py-2 px-4 border break-words">{{ $data->subtitle }}</td>
                     <td class="py-2 px-4 border text-center">
-                        <div class="flex items-center justify-center space-x-2">
+                        <div class="flex items-center justify-center text-2xl space-x-2">
                             <!-- Edit -->
-                            <a href="{{ route('edit', $data->id) }}" class="text-blue-600 hover:text-blue-700 text-xs sm:text-sm">
+                            <a href="{{ route('edit', $data->id) }}" class="text-blue-600 text-2xl hover:text-blue-700 text-xs sm:text-sm">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
+
                             <span class="text-gray-600 text-xs sm:text-sm">|</span>
 
                             <!-- Delete -->
 
-                            <form action="{{ route('whyus.detele', $data->id) }}" method="POST" onsubmit="return confirm('Are you sure you want to delete this item?');">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
+                            <a class="text-danger bolder  hover:text-danger-700 text-xs text-2xl " href="{{ route('whyus.detele', $data->id) }}">
+                                Delete
+                            </a>
 
                         </div>
                     </td>

@@ -157,7 +157,15 @@
                                     <div class="text-truncate font-bold">About</div>
                                 </a>
                             </div>
+
                         </div>
+                    </li>
+
+                    <li class="menu-item">
+                        <a href="{{route('feedback.list')}}" class="menu-link flex items-center">
+                            <i class="fa-regular fa-message text-gray-500 text-xl mr-2"></i>
+                            <div class="text-truncate font-bold">Feedback</div>
+                        </a>
                     </li>
                 </ul>
 

@@ -26,74 +26,25 @@
             <p class="mb-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti amet at atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia voluptas maxime veniam necessitatibus saepe in ab? Repellat!</p>
         </div>
         <div class="row g-4 justify-content-center">
+            @foreach($team as $teams)
             <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="team-item rounded">
                     <div class="team-img rounded-top h-100">
-                        <img src="frontend/img/team-1.jpg" class="img-fluid rounded-top w-100" alt="">
+                        <img src="{{ asset($teams->img) }}" class="img-fluid rounded-top w-100" alt="">
                         <div class="team-icon d-flex justify-content-center">
-                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href="{{$teams->facebook}}"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href="{{$teams->twitter}}"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href="{{$teams->instagram}}"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href="{{$teams->linkedin}}"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <div class="team-content text-center border border-primary border-top-0 rounded-bottom p-4">
-                        <h5>Full Name</h5>
-                        <p class="mb-0">Message Physio Therapist</p>
+                        <h5>{{$teams->full_name}}</h5>
+                        <p class="mb-0">{{$teams->services}}</p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="team-item rounded">
-                    <div class="team-img rounded-top h-100">
-                        <img src="frontend/img/team-2.jpg" class="img-fluid rounded-top w-100" alt="">
-                        <div class="team-icon d-flex justify-content-center">
-                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center border border-primary border-top-0 rounded-bottom p-4">
-                        <h5>Full Name</h5>
-                        <p class="mb-0">Rehabilitation Therapist</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.5s">
-                <div class="team-item rounded">
-                    <div class="team-img rounded-top h-100">
-                        <img src="frontend/img/team-3.jpg" class="img-fluid rounded-top w-100" alt="">
-                        <div class="team-icon d-flex justify-content-center">
-                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center border border-primary border-top-0 rounded-bottom p-4">
-                        <h5>Full Name</h5>
-                        <p class="mb-0">Doctor of Physical therapy</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-3 wow fadeInUp" data-wow-delay="0.7s">
-                <div class="team-item rounded">
-                    <div class="team-img rounded-top h-100">
-                        <img src="frontend/img/team-4.jpg" class="img-fluid rounded-top w-100" alt="">
-                        <div class="team-icon d-flex justify-content-center">
-                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-square btn-primary text-white rounded-circle mx-1" href=""><i class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                    <div class="team-content text-center border border-primary border-top-0 rounded-bottom p-4">
-                        <h5>Full Name</h5>
-                        <p class="mb-0">Doctor of Physical therapy</p>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </div>

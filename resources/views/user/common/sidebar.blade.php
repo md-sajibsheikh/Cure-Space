@@ -14,8 +14,8 @@
         </div>
 
         <a href="{{route('index')}}" class="navbar-brand mx-4 mb-3 d-flex align-items-center">
-            <i class="fas fa-arrow-left me-2"></i>
-            <h5 class="mt-2">Back Home</h5>
+            <i class="fas fa-arrow-left me-1"></i>
+            <h5 class="mt-[-4px]">Back Home</h5>
         </a>
 
         <div class="navbar-nav w-100">
@@ -27,8 +27,8 @@
 
             <!-- Booking Link -->
             <a href="{{route('user.booking')}}" class="nav-item mt-2 nav-link d-flex align-items-center">
-                <i class="fas fa-calendar-check mr-2"></i>
-                <span>Booking</span>
+                <i class="fas fa-calendar-check "></i>
+                <span style="margin-top: -10px;">Booking</span>
             </a>
 
             <!-- Contact Link -->
@@ -36,14 +36,17 @@
                 <i class="fas fa-envelope mr-2"></i>
                 <span>Contact</span>
             </a>
+
+
+            <a href="{{route('user.feedback')}}" class="nav-item mt-2 nav-link d-flex align-items-center">
+                <i class="fa-regular fa-comment "></i>
+                <span>Feedback</span>
+            </a>
         </div>
     </nav>
 </div>
 
 <style>
-    
-
-   
     #b {
         font-size: 30px;
         /* Size of the logo icon */
@@ -52,7 +55,7 @@
     .app-brand-text {
         font-size: 1.75rem;
         /* Adjust size of CureSpace text */
-      
+
         /* Ensure text color is gray */
     }
 </style>

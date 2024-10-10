@@ -28,15 +28,14 @@
                         <div class="col-sm-6">
                             <div class="d-flex flex-column h-100">
                                 <div class="mb-4">
-                                    <h5 class="mb-3"><i class="fa fa-check text-primary me-2"></i> Body Relaxation</h5>
+                                    <h5 class="mb-3 mt-3"><i class="fa fa-check text-primary me-2"></i> Body Relaxation</h5>
                                     <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et deserunt qui cupiditate veritatis enim ducimus.</p>
                                 </div>
-                                <div class="mb-4 mt-2">
-                                    <h5 class="mb-3"><i class="fa fa-check text-primary me-2"></i> Body Relaxation</h5>
+                                <div class="mb-4 mt-3">
+                                    <h5 class="mb-2"><i class="fa fa-check text-primary me-2"></i> Body Relaxation</h5>
                                     <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et deserunt qui cupiditate veritatis enim ducimus.</p>
                                 </div>
-                                <div class="text-start mb-4">
-                                </div>
+
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -54,14 +53,15 @@
                 <div class="appointment-form rounded p-5">
                     <p class="fs-4 text-uppercase text-primary">Get In Touch</p>
                     <h1 class="display-5 mb-4">Get Appointment</h1>
-
-
                     <form action="{{route('bookingData')}}" method="post">
                         @csrf
+
+                        <input type="hidden" name="user_id" value="{{Auth::user()->id ?? ''}}">
                         <div class="row gy-3 gx-4">
                             <div class="col-xl-6">
                                 <input type="text" class="form-control py-3 border-primary bg-transparent text-white" placeholder="First Name" name="name">
                             </div>
+
                             <div class="col-xl-6">
                                 <input type="email" class="form-control py-3 border-primary bg-transparent text-white" placeholder="Email" name="email">
                             </div>
@@ -103,9 +103,6 @@
                             @endif
                         </div>
                     </form>
-
-
-
                 </div>
             </div>
         </div>

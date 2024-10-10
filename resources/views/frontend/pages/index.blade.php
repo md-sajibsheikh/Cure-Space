@@ -22,20 +22,20 @@
             </div>
         </div>
     </div>
-@endforeach
+    @endforeach
 
-<!-- Static Item (optional) -->
-<div class="header-carousel-item">
-    <img src="frontend/img/carousel-2.jpg" class="img-fluid w-100" alt="Image">
-    <div class="carousel-caption">
-        <div class="carousel-caption-content p-3">
-            <h5 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Physiotherapy Center</h5>
-            <h1 class="display-1 text-capitalize text-white mb-4">Best Solution For Painful Life</h1>
-            <p class="mb-5 fs-5 animated slideInDown">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            <a class="btn btn-primary rounded-pill text-white py-3 px-5" href="{{ route('appointment') }}">Book Appointment</a>
+    <!-- Static Item (optional) -->
+    <div class="header-carousel-item">
+        <img src="frontend/img/carousel-2.jpg" class="img-fluid w-100" alt="Image">
+        <div class="carousel-caption">
+            <div class="carousel-caption-content p-3">
+                <h5 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Physiotherapy Center</h5>
+                <h1 class="display-1 text-capitalize text-white mb-4">Best Solution For Painful Life</h1>
+                <p class="mb-5 fs-5 animated slideInDown">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <a class="btn btn-primary rounded-pill text-white py-3 px-5" href="{{ route('appointment') }}">Book Appointment</a>
+            </div>
         </div>
     </div>
-</div>
 
 </div>
 
@@ -80,6 +80,7 @@
 
 
 <!-- About Start -->
+<!-- About Start -->@foreach($about as $abouts)
 <div class="container-fluid about bg-light py-5">
     <div class="container py-5">
         <div class="row g-5 align-items-center">
@@ -89,24 +90,26 @@
                     <div class="about-img-inner">
                         <img src="frontend/img/about-2.jpg" class="img-fluid rounded-circle w-100 h-100" alt="Image">
                     </div>
-                    <div class="about-experience">15 years experience</div>
+
+                    <div class="about-experience p-2">{{$abouts->experience}}years experience</div>
                 </div>
             </div>
             <div class="col-lg-7 wow fadeInRight" data-wow-delay="0.4s">
                 <div class="section-title text-start mb-5">
                     <h4 class="sub-title pe-3 mb-0">About Us</h4>
-                    <h1 class="display-3 mb-4">We are Ready to Help Improve Your Treatment.</h1>
-                    <p class="mb-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat deleniti amet at atque sequi quibusdam cumque itaque repudiandae temporibus, eius nam mollitia voluptas maxime veniam necessitatibus saepe in ab? Repellat!</p>
+                    <h1 class="display-3 mb-4">{{$abouts->title}}</h1>
+                    <p class="mb-4">{{$abouts->description}}</p>
                     <div class="mb-4">
-                        <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Refresing to get such a personal touch.</p>
-                        <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Duis aute irure dolor in reprehenderit in voluptate.</p>
-                        <p class="text-secondary"><i class="fa fa-check text-primary me-2"></i> Velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                        <p class="text-secondary"><i class=" {{$abouts->touch1 ? 'fa fa-check text-primary me-2':''}} "></i> {{$abouts->touch1}}</p>
+                        <p class="text-secondary"><i class=" {{$abouts->touch1 ? 'fa fa-check text-primary me-2':''}}"></i>{{$abouts->touch2}}</p>
+                        <p class="text-secondary"><i class=" {{$abouts->touch1 ? 'fa fa-check text-primary me-2':''}} "></i>{{$abouts->touch3}}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- About End -->@endforeach
 <!-- About End -->
 
 <!-- Feature Start -->
