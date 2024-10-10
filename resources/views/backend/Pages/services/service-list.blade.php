@@ -2,20 +2,19 @@
 
 @section('main-content')
 
-<div class=" p-5">
-    <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600  p-2 text-center rounded-t-lg">Service List</h1>
+<div class="p-5">
+    <h1 class="text-2xl font-bold bg-gradient-to-r from-blue-500 to-purple-600 p-2 text-center rounded-lg">Service List</h1>
 
     <div class="overflow-x-auto">
-        <div class=" rounded-lg shadow-md">
+        <div class="rounded-lg shadow-md">
             <table class="min-w-full bg-white shadow-md rounded-lg text-center">
                 <thead>
                     <tr>
-                        <th class="py-2 px-4 border w-1/6">Image</th>
-                        <th class="py-2 px-4 border w-2/6">Service Name</th> <!-- Increased width -->
-                        <th class="py-2 px-4 border w-2/6">Title</th> <!-- Adjusted width -->
-                        <th class="py-2 px-4 border w-1/6">Action</th>
+                        <th class="py-2 px-4 border">Image</th>
+                        <th class="py-2 px-4 border">Service Name</th>
+                        <th class="py-2 px-4 border">Title</th>
+                        <th class="py-2 px-4 border">Action</th>
                     </tr>
-
                 </thead>
                 <tbody>
                     @foreach($list as $data)

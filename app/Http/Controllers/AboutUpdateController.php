@@ -17,6 +17,38 @@ return view('backend.Pages.setting.aboutupdate', ['about' => $data]);
 public function aboutstore(Request $request)
 {
 
+
+        $data = [
+            'site_name' => $request->site_name,
+            'subtitle' => $request->subtitle,
+            'title' => $request->title,
+            'description' => $request->description,
+        ];
+        if (!is_dir(public_path('/backend/assets/img/about'))) {
+            mkdir(public_path('/backend/assets/img/about'), 0777, true);
+        }
+        // Handle the logo image
+        if ($request->hasFile('img')) {
+            $image1 = $request->file('img');
+            $name1 = $image1->getClientOriginalName();
+            $image1Name = time() . "_" . $name1;
+            $image1->move(public_path('/backend/assets/img/about'), $image1Name);
+            $data['img'] = '/backend/assets/img/about/' . $image1Name;
+        }
+
+
+        if (!is_dir(public_path('/backend/assets/img/about/1'))) {
+            mkdir(public_path('/backend/assets/img/about/1'), 0777, true);
+        }
+        // Handle the logo image
+        if ($request->hasFile('img_hero')) {
+            $image1 = $request->file('img_hero');
+            $name1 = $image1->getClientOriginalName();
+            $image1Name = time() . "_" . $name1;
+            $image1->move(public_path('/backend/assets/img/about/1'), $image1Name);
+            $data['img_hero'] = '/backend/assets/img/about/1/' . $image1Name;
+        }
+
         $data = [
             'experience' => $request->experience,
             'title' => $request->title,
@@ -24,6 +56,7 @@ public function aboutstore(Request $request)
             'touch1' => $request->touch1,
             'touch2' => $request->touch2,
             'touch3' => $request->touch3,
+           
         ];
 
 // Check if an AboutUpdate record exists

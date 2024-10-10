@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('touch1')->nullable();
             $table->string('touch2')->nullable();
             $table->string('touch3')->nullable();
+            $table->string('img')->nullable();
+            $table->string('img_hero')->nullable();
             $table->timestamps();
         });
     }

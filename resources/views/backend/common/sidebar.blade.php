@@ -1,4 +1,4 @@
-<body class="text-center text-black"> <!-- Light sky blue background for body -->
+<body class=" text-black"> <!-- Light sky blue background for body -->
     <!-- Layout wrapper -->
     <div class="mt-2">
         <div class="flex">
@@ -17,7 +17,6 @@
                     </a>
                 </div>
 
-                <div class="menu-inner-shadow"></div>
 
                 <ul class="menu-inner py-1">
                     <!-- Sidebar Items -->

@@ -10,11 +10,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CureSpace - Input Form</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
+    <style>
+        .img-preview {
+            width: 100%;
+            height: auto;
+            max-height: 200px;
+            /* Limit height for preview */
+            object-fit: cover;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100">
-    <div class="container mx-auto mt-5 p-5 bg-white rounded shadow-lg">
-        <h2 class="text-xl font-bold mb-4">Update About Information</h2>
+    <div class="container mx-auto mt-5 p-5 bg-white rounded-lg shadow-lg shadow-gray-400">
+        <h2 class="text-2xl font-bold text-center text-indigo-600 mb-4">About Page Update</h2>
 
         <!-- Display success message -->
         @if(session('success'))
@@ -23,28 +33,28 @@
         </div>
         @endif
 
-        <form id="inputForm" action="{{ route('site.aboutstore') }}" method="POST">
+        <form id="inputForm" action="{{ route('site.aboutstore') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
             <!-- Experience Input Field -->
             <div class="mb-4">
                 <label for="experience" class="block text-gray-700">Experience (Years):</label>
                 <input type="number" id="experience" name="experience" value="{{ old('experience', $about->experience ?? '') }}"
-                    class="mt-1 block w-1/4 p-2 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
+                    class="mt-1 block w-full md:w-1/4 p-2 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" required>
             </div>
 
             <!-- Title Input Field -->
             <div class="mb-4">
                 <label for="title" class="block text-gray-700">Title:</label>
                 <input type="text" id="title" name="title" value="{{ old('title', $about->title ?? '') }}"
-                    class="mt-1 p-2 block w-3/4 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">
+                    class="mt-1 p-2 block w-full md:w-3/4 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" required>
             </div>
 
             <!-- Description Input Field -->
             <div class="mb-4">
                 <label for="description" class="block text-gray-700">Description:</label>
                 <textarea id="description" name="description" rows="4"
-                    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200">{{ old('description', $about->description ?? '') }}</textarea>
+                    class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" required>{{ old('description', $about->description ?? '') }}</textarea>
             </div>
 
             <!-- Options Input Fields (Checkboxes) -->
@@ -68,15 +78,32 @@
                 </div>
             </fieldset>
 
+            <!-- Image Upload Fields -->
+            <div class="mb-4">
+                <label for="img" class="block text-gray-700">Upload Image:</label>
+                <input type="file" id="img" name="img" accept="image/*"
+                    class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" onchange="previewImage(event, 'imgPreview')">
+
+                <!-- Displaying the previously uploaded image if it exists -->
+
+            </div>
+
+            <div class="mb-4">
+                <label for="img_hero" class="block text-gray-700">Upload Hero Image:</label>
+                <input type="file" id="img_hero" name="img_hero" accept="image/*"
+                    class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" onchange="previewImage(event, 'imgHeroPreview')">
+
+                <!-- Displaying the previously uploaded hero image if it exists -->
+             
+            </div>
+
             <div class="flex justify-end">
                 <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">Submit</button>
             </div>
         </form>
     </div>
 
-    <script>
-        // Add any additional JavaScript functionality here if needed
-    </script>
+    
 </body>
 
 </html>

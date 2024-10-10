@@ -47,4 +47,9 @@ class User extends Authenticatable
     {
         return $this->hasOne(Booking::class);
     }
+
+    public function getin()
+    {
+        return $this->hasOne(Contact::class);
+    }
 }

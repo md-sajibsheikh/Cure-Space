@@ -1,9 +1,9 @@
 <!-- Navbar & Hero Start -->
 <div class="container-fluid position-relative p-0">
     <nav class="navbar navbar-expand-lg navbar-light bg-white px-4 px-lg-5 py-3 py-lg-0">
+        
         <a href="{{ route('index') }}" class="navbar-brand p-0">
-            <h1 class="text-primary m-0"><i class="fas fa-star-of-life me-3"></i>CureSpace</h1>
-            <!-- <img src="img/logo.png" alt="Logo"> -->
+            <h1 class="text-primary "><img src="//" alt="" style="margin-top: -10px;"></i>CureSpace</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="fa fa-bars"></span>

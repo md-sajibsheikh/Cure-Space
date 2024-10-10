@@ -7,15 +7,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home page Update</title>
+    <title>Home Page Update</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css">
 </head>
 
-<body class="bg-gray-100 w-full h-4/4">
+<body class="bg-gray-100 w-full">
 
     <!-- Form Section -->
-    <section class="mt-8 container mx-auto p-6 bg-white shadow-md rounded-lg max-w-lg">
+    <section class="mt-8 container mx-auto p-6 bg-white shadow-lg rounded-lg max-w-2xl">
         <h2 class="text-2xl font-bold text-center text-indigo-600 mb-4">
-            Home page Update
+            Home Page Update
         </h2>
 
         <form action="{{ route('datastore') }}" method="POST" enctype="multipart/form-data">
@@ -27,8 +28,7 @@
                 <input type="file" id="logo_img" name="img" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" onchange="previewImage(event, 'logoPreview')">
 
                 <!-- Logo Image Preview -->
-                <img id="logoPreview" class="mt-4 w-40 h-40 object-cover"
-                    src="{{ asset($NavbarView['img'] ?? '') }}" alt="Logo Preview">
+                <img id="logoPreview" class="mt-4 w-40 h-40 object-cover rounded shadow" src="{{ asset($NavbarView['img'] ?? '') }}" alt="Logo Preview">
             </div>
 
             <!-- Site Name -->
@@ -59,15 +59,12 @@
             <div class="mb-4 flex justify-around">
                 <div>
                     <!-- Hero Image 1 Preview -->
-                    <img id="heroPreview1" class="m-2 w-full h-40 object-cover"
-                        src="{{ asset($NavbarView['heroimg_1'] ?? '') }}" alt="Hero Image 1 Preview"
-                        >
+                    <img id="heroPreview1" class="m-2 w-full h-40 object-cover rounded shadow" src="{{ asset($NavbarView['heroimg_1'] ?? '') }}" alt="Hero Image 1 Preview">
                 </div>
                 <hr class="h-40 border border-black">
                 <div>
                     <!-- Hero Image 2 Preview -->
-                    <img id="heroPreview2" class="m-2 w-full h-40 object-cover"
-                        src="{{ asset($NavbarView['heroimg_2'] ?? '') }}" alt="Hero Image 2 Preview">
+                    <img id="heroPreview2" class="m-2 w-full h-40 object-cover rounded shadow" src="{{ asset($NavbarView['heroimg_2'] ?? '') }}" alt="Hero Image 2 Preview">
                 </div>
             </div>
 
@@ -86,8 +83,8 @@
             </div>
 
             <!-- Submit Button -->
-            <div class="text-right">
-                <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700">Submit</button>
+            <div class="text-center ">
+                <button type="submit" class="bg-indigo-600 text-white px-6 py-2 w-full rounded-lg hover:bg-indigo-700">Submit</button>
             </div>
 
         </form>

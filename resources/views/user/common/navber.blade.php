@@ -1,7 +1,7 @@
 <div class="content">
 
-    <nav style="background-color:#dcd4dd;" class="navbar navbar-expand   sticky-top px-4 py-0">
-        <a href="index.html" class="navbar-brand d-flex d-lg-none ">
+    <nav  class="navbar navbar-expand   sticky-top px-4 py-0">
+        <a href="{{url('/')}}" class="navbar-brand d-flex d-lg-none ">
             <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
         </a>
         <a href="#" class="sidebar-toggler flex-shrink-0">

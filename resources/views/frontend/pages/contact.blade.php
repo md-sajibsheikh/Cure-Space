@@ -30,6 +30,8 @@
                 <p class="mb-4 text-white">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done.</p>
                 <form action="{{route('contactStore')}}" method="post">
                     @csrf
+
+                    <input type="text" name="user_id" value="{{Auth::user()->id ?? ''}}">
                     <div class="row g-3">
                         <div class="col-lg-12 col-xl-6">
                             <div class="form-floating">

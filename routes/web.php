@@ -93,7 +93,10 @@ Route::post('/login/check', [UserController::class, 'loginCheck'])->name('login.
 //Contact me
 
 Route::post('/contact-Store', [ContactController::class, 'contactStore'])->name('contactStore');
-Route::get('/contact/list', [ContactController::class, 'contactMe'])->name('contact.list');
+Route::get('/contact-list', [ContactController::class, 'contactMe'])->name('contact.list');
+
+Route::post('/admin/contact-list/accept/{id}', [ContactController::class, 'accept'])->name('contact.accept');
+Route::post('/admin/contact-list/reject{id}', [ContactController::class, 'reject'])->name('contact.reject');
 
 
 //booking

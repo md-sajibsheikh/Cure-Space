@@ -19,7 +19,8 @@ return new class extends Migration
             $table->string('project');
             $table->string('subject');
             $table->text('message');
-            $table->string('status')->default('pending');
+            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->enum('status', ['pending', 'accepted', 'rejected'])->default('pending');
             $table->timestamps();
         });
     }

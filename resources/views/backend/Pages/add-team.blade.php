@@ -5,16 +5,7 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container mx-auto">
-            <div class="flex justify-between items-center mb-4">
-                <div></div>
-                <div>
-                    <nav class="flex space-x-2 mt-1 text-gray-500">
-                        <a href="#" class="hover:text-gray-900">Home</a>
-                        <span>/</span>
-                        <span class="text-gray-800">Add Team</span>
-                    </nav>
-                </div>
-            </div>
+           
         </div>
     </div>
     <!-- /.content-header -->
