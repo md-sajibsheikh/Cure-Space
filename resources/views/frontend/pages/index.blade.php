@@ -22,20 +22,21 @@
             </div>
         </div>
     </div>
-    @endforeach
+
 
     <!-- Static Item (optional) -->
     <div class="header-carousel-item">
-        <img src="frontend/img/carousel-2.jpg" class="img-fluid w-100" alt="Image">
+        <img src="{{ asset($homes->heroimg_2) }}" class="img-fluid w-100" alt="Image">
         <div class="carousel-caption">
             <div class="carousel-caption-content p-3">
-                <h5 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">Physiotherapy Center</h5>
-                <h1 class="display-1 text-capitalize text-white mb-4">Best Solution For Painful Life</h1>
-                <p class="mb-5 fs-5 animated slideInDown">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <h5 class="text-white text-uppercase fw-bold mb-4" style="letter-spacing: 3px;">{{ $homes->title }}</h5>
+                <h1 class="display-1 text-capitalize text-white mb-4">{{ $homes->subtitle }}</h1>
+                <p class="mb-5 fs-5 animated slideInDown">{{ $homes->description }}</p>
                 <a class="btn btn-primary rounded-pill text-white py-3 px-5" href="{{ route('appointment') }}">Book Appointment</a>
             </div>
         </div>
     </div>
+    @endforeach
 
 </div>
 
@@ -309,66 +310,30 @@
             <h1 class="display-3 mb-4">What Clients are Say</h1>
         </div>
         <div class="testimonial-carousel owl-carousel">
+            @foreach($feedbacks as $feedback)
             <div class="testimonial-item">
                 <div class="testimonial-inner p-5">
                     <div class="testimonial-inner-img mb-4">
-                        <img src="frontend/img/testimonial-img.jpg" class="img-fluid rounded-circle" alt="">
+                        <img src="{{ asset($feedback->user_img ?? 'default-avatar.png') }}" class="img-fluid rounded-circle" alt="">
                     </div>
-                    <p class="text-white fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
+
+                    <p class="text-white fs-7">
+                        {{ $feedback->feedback }}
                     </p>
+
                     <div class="text-center">
-                        <h5 class="mb-2">John Abraham</h5>
-                        <p class="mb-2 text-white-50">New York, USA</p>
+                        <h5 class="mb-2">{{ $feedback->user_name }}</h5>
+                        <p class="mb-2 text-white-50">{{ $feedback->location }}</p>
                         <div class="d-flex justify-content-center">
-                            <i class="fas fa-star text-secondary"></i>
-                            <i class="fas fa-star text-secondary"></i>
-                            <i class="fas fa-star text-secondary"></i>
-                            <i class="fas fa-star text-secondary"></i>
-                            <i class="fas fa-star text-secondary"></i>
+                            @for($i = 0; $i < 5; $i++)
+                                <i class="fas fa-star {{ $i < $feedback->rating ? 'text-secondary' : 'text-muted' }}"></i>
+                                @endfor
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="testimonial-item">
-                <div class="testimonial-inner p-5">
-                    <div class="testimonial-inner-img mb-4">
-                        <img src="frontend/img/testimonial-img.jpg" class="img-fluid rounded-circle" alt="">
-                    </div>
-                    <p class="text-white fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
-                    </p>
-                    <div class="text-center">
-                        <h5 class="mb-2">John Abraham</h5>
-                        <p class="mb-2 text-white-50">New York, USA</p>
-                        <div class="d-flex justify-content-center">
-                            <i class="fas fa-star text-secondary"></i>
-                            <i class="fas fa-star text-secondary"></i>
-                            <i class="fas fa-star text-secondary"></i>
-                            <i class="fas fa-star text-secondary"></i>
-                            <i class="fas fa-star text-secondary"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="testimonial-item">
-                <div class="testimonial-inner p-5">
-                    <div class="testimonial-inner-img mb-4">
-                        <img src="frontend/img/testimonial-img.jpg" class="img-fluid rounded-circle" alt="">
-                    </div>
-                    <p class="text-white fs-7">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores nemo facilis tempora esse explicabo sed! Dignissimos quia ullam pariatur blanditiis sed voluptatum. Totam aut quidem laudantium tempora. Minima, saepe earum!
-                    </p>
-                    <div class="text-center">
-                        <h5 class="mb-2">John Abraham</h5>
-                        <p class="mb-2 text-white-50">New York, USA</p>
-                        <div class="d-flex justify-content-center">
-                            <i class="fas fa-star text-secondary"></i>
-                            <i class="fas fa-star text-secondary"></i>
-                            <i class="fas fa-star text-secondary"></i>
-                            <i class="fas fa-star text-secondary"></i>
-                            <i class="fas fa-star text-secondary"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+
         </div>
     </div>
 </div>

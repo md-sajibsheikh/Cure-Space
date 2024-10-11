@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AboutUpdate;
 use App\Models\Blog;
 use App\Models\ContactUpdate;
+use App\Models\Feedback;
 use App\Models\HomeUpdate;
 use App\Models\Service;
 use App\Models\TeamAdded;
@@ -38,11 +39,14 @@ class FrontendConteroller extends Controller
         $contact = ContactUpdate::get(); // homeupdate data
         $homeupdate = HomeUpdate::get(); // homeupdate data
         $services = Service::get();  $whyus = WhyUs::get();
+        $feedback = Feedback::get(); 
+
 
 
         return view('frontend.pages.service', ['home' => $homeupdate, 'contactdata' => $contact,
             'whyus' => $whyus,
             'data' => $services,
+            'feedbacks' => $feedback, 
 
     
     ]);
@@ -65,9 +69,9 @@ class FrontendConteroller extends Controller
     {
         $contact = ContactUpdate::get(); // homeupdate data
         $homeupdate = HomeUpdate::get(); // homeupdate data
+        $feedback = Feedback::get(); 
 
-
-        return view('frontend.pages.testimonial', ['home' => $homeupdate, 'contactdata' => $contact,]);
+        return view('frontend.pages.testimonial', ['home' => $homeupdate, 'contactdata' => $contact, 'feedbacks' => $feedback, ]);
     }
 
 

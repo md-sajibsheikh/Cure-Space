@@ -43,13 +43,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-    public function profile()
+    public function bookings()
     {
-        return $this->hasOne(Booking::class);
+        return $this->hasMany(Booking::class);
     }
 
-    public function getin()
+    public function contactUs()
     {
-        return $this->hasOne(Contact::class);
+        return $this->hasMany(Contact::class);
     }
 }

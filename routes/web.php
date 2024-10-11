@@ -188,7 +188,4 @@ Route::middleware(['admin'])->group(function () {
 
 
 
-// welcome
-Route::get('/z', function () {
-    return view('welcome');
-});
+
