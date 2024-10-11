@@ -10,9 +10,7 @@ class UserBookingController extends Controller
 {
     public function user_booking()
     {
-
         $data = Booking::where('user_id', Auth::id())->with('user')->get(); 
-
         return view('user.pages.booking', ['Book' => $data]);
     }
 }

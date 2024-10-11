@@ -16,16 +16,14 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $services = Service::get(); // Service data
-        $teams = TeamAdded::get(); // Team data
-        $blogs = Blog::get(); // Blog data
-        $whyus = WhyUs::get(); // Whyus data
-        $homeupdate = HomeUpdate::get(); // homeupdate data
-        $contact = ContactUpdate::get(); // homeupdate data
-    $about= AboutUpdate::get();
+        $services = Service::get();
+        $teams = TeamAdded::get();
+        $blogs = Blog::get();
+        $whyus = WhyUs::get();
+        $homeupdate = HomeUpdate::get();
+        $contact = ContactUpdate::get();
+        $about = AboutUpdate::get();
         $feedback = Feedback::get();
-        
-
         return view('frontend.pages.index', [
             'data' => $services,
             'team' => $teams,
@@ -34,13 +32,7 @@ class HomeController extends Controller
             'home' => $homeupdate,
             'contactdata' => $contact,
             'about' => $about,
-             
-        'feedbacks' => $feedback,
-
-            
+            'feedbacks' => $feedback,
         ]);
     }
-   
-
-
 }

@@ -32,7 +32,7 @@
                 @else
                 <a href="{{ route('user') }}" class="nav-item nav-link {{ request()->routeIs('user') ? 'active' : '' }}">Dashboard</a>
                 @endif
-                {{ Auth::user()->name }}
+        
                 @else
                 <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact Us</a>
                 @endif

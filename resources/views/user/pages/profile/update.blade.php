@@ -7,130 +7,147 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Settings</title>
 
-    <!-- Tailwind CSS CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
-
-<body>
+<body class="bg-light">
     @include('sweetalert::alert')
 
-    <div class="container mx-auto flex items-center justify-center min-h-screen px-4 sm:px-6 lg:px-8">
-        <div class="w-full max-w-md space-y-6 bg-white rounded-lg shadow-lg p-8">
-            <h2 class="text-2xl font-bold text-center text-green-500">Profile Settings</h2>
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <div class="card shadow-sm">
+                    <div class="card-body" style="margin-left: 40px;">
+                        <h2 class="text-center text-info">Profile Settings</h2>
 
-            <div class="mt-4 text-center">
-                <img class="w-24 h-24 rounded-full mx-auto border border-gray-300"
-                    src="{{ $user->img ? asset($user->img) : 'https://via.placeholder.com/150' }}"
-                    alt="Profile Picture">
+                        <div class="text-center">
+                            <img class="img-fluid rounded-circle border border-3 border-gray-300"
+                                src="{{ $user->img ? asset($user->img) : 'https://via.placeholder.com/150' }}"
+                                alt="Profile Picture" style="width: 100px; height: 100px;">
+                        </div>
+
+                        <div class="mt-4">
+                            <label class="form-label">Full Name:</label>
+                            <span class="text-dark">{{ $user->name }}</span>
+                        </div>
+
+                        <div class="mt-2">
+                            <label class="form-label">Email:</label>
+                            <span class="text-dark">{{ $user->email }}</span>
+                        </div>
+
+                        <div class="mt-2">
+                            <label class="form-label">Phone:</label>
+                            <span class="text-dark">{{ $user->phone }}</span>
+                        </div>
+
+                        <div class="mt-4 d-flex justify-content-center">
+                            <button onclick="toggleProfileForm()" class="btn btn-primary me-2">
+                                Update Profile
+                            </button>
+
+                            <button onclick="togglePasswordForm()" class="btn btn-primary">
+                                Change Password
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <div class="mt-4">
-                <label class="block text-lg font-medium text-gray-700">Full Name:
-                    <span class="ml-2">{{ $user->name }}</span>
-                </label>
+            <!-- Right Side Forms -->
+            <div class="col-md-6">
+                <!-- Profile Update Form -->
+                <div id="profile-form" class="mt-4 card shadow-sm" style="display: none;">
+                    <div class="card-body">
+                        <h3 class="text-center text-info">Update Profile</h3>
+                        <form action="{{ route('user.profile.update', $user->id) }}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Full Name</label>
+                                <input type="text" name="name" value="{{ $user->name }}" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" name="email" value="{{ $user->email }}" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone</label>
+                                <input type="text" name="phone" value="{{ $user->phone }}" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="img" class="form-label">Profile Picture</label>
+                                <input type="file" name="img" accept="image/*" class="form-control">
+                            </div>
+
+                            <button type="submit" class="btn btn-info w-100">
+                                Save Changes
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Password Update Form -->
+                <div id="password-form" class="mt-4 card shadow-sm" style="display: none;">
+                    <div class="card-body">
+                        <h3 class="text-center text-info">Change Password</h3>
+                        <form action="{{ route('user.password.update', $user->id) }}" method="POST">
+                            @csrf
+                            <div class="mb-3">
+                                <label for="current_password" class="form-label">Current Password</label>
+                                <input type="password" name="current_password" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="new_password" class="form-label">New Password</label>
+                                <input type="password" name="new_password" class="form-control" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="confirm_password" class="form-label">Confirm New Password</label>
+                                <input type="password" name="confirm_password" class="form-control" required>
+                            </div>
+
+                            <button type="submit" class="btn btn-info w-100">
+                                Update Password
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
-
-            <div class="mt-4">
-                <label class="block text-lg font-medium text-gray-700">Email:
-                    <span class="ml-2">{{ $user->email }}</span>
-                </label>
-            </div>
-
-            <div class="mt-4">
-                <label class="block text-lg font-medium text-gray-700">Phone:
-                    <span class="ml-2">{{ $user->phone }}</span>
-                </label>
-            </div>
-
-            <div class="mt-6 flex space-x-4 justify-center">
-                <button onclick="toggleProfileForm()"
-                    class="px-4 py-2 font-semibold text-white bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg hover:from-blue-500 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Update Profile
-                </button>
-
-                <button onclick="togglePasswordForm()"
-                    class="px-4 py-2 font-semibold text-white bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg hover:from-blue-500 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
-                    Change Password
-                </button>
-            </div>
-        </div>
-
-        <!-- Profile Update Form -->
-        <div id="profile-form" class="hidden w-full max-w-md mt-6 p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="text-xl font-semibold text-center text-gray-800">Update Profile</h3>
-            <form action="{{ route('user.profile.update', $user->id) }}" method="POST" enctype="multipart/form-data">
-                @csrf
-                <div class="mt-4">
-                    <label for="name" class="block text-sm font-medium text-gray-700">Full Name</label>
-                    <input type="text" name="name" value="{{ $user->name }}"
-                        class="w-full px-4 py-2 mt-1 text-gray-700 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                </div>
-
-                <div class="mt-4">
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" name="email" value="{{ $user->email }}"
-                        class="w-full px-4 py-2 mt-1 text-gray-700 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                </div>
-
-                <div class="mt-4">
-                    <label for="phone" class="block text-sm font-medium text-gray-700">Phone</label>
-                    <input type="text" name="phone" value="{{ $user->phone }}"
-                        class="w-full px-4 py-2 mt-1 text-gray-700 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                </div>
-
-                <div class="mt-4">
-                    <label for="img" class="block text-sm font-medium text-gray-700">Profile Picture</label>
-                    <input type="file" name="img" accept="image/*"
-                        class="w-full px-4 py-2 mt-1 text-gray-700 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                </div>
-
-                <button type="submit" class="w-full px-4 py-2 mt-6 font-semibold text-white bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg hover:from-blue-500 hover:to-blue-700">
-                    Save Changes
-                </button>
-            </form>
-        </div>
-
-        <!-- Password Update Form -->
-        <div id="password-form" class="hidden w-full max-w-md mt-6 p-6 bg-white rounded-lg shadow-lg">
-            <h3 class="text-xl font-semibold text-center text-gray-800">Change Password</h3>
-            <form action="{{ route('user.password.update', $user->id) }}" method="POST">
-                @csrf
-                <div class="mt-4">
-                    <label for="current_password" class="block text-sm font-medium text-gray-700">Current Password</label>
-                    <input type="password" name="current_password"
-                        class="w-full px-4 py-2 mt-1 text-gray-700 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                </div>
-
-                <div class="mt-4">
-                    <label for="new_password" class="block text-sm font-medium text-gray-700">New Password</label>
-                    <input type="password" name="new_password"
-                        class="w-full px-4 py-2 mt-1 text-gray-700 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                </div>
-
-                <div class="mt-4">
-                    <label for="confirm_password" class="block text-sm font-medium text-gray-700">Confirm New Password</label>
-                    <input type="password" name="confirm_password"
-                        class="w-full px-4 py-2 mt-1 text-gray-700 border border-gray-300 rounded-lg focus:ring-blue-500 focus:border-blue-500">
-                </div>
-
-                <button type="submit" class="w-full px-4 py-2 mt-6 font-semibold text-white bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg hover:from-blue-500 hover:to-blue-700">
-                    Update Password
-                </button>
-            </form>
         </div>
     </div>
 
     <script>
         function toggleProfileForm() {
-            document.getElementById('profile-form').classList.toggle('hidden');
-            document.getElementById('password-form').classList.add('hidden');
+            const profileForm = document.getElementById('profile-form');
+            const passwordForm = document.getElementById('password-form');
+
+            if (profileForm.style.display === "none") {
+                profileForm.style.display = "block";
+                passwordForm.style.display = "none";
+            } else {
+                profileForm.style.display = "none";
+            }
         }
 
         function togglePasswordForm() {
-            document.getElementById('password-form').classList.toggle('hidden');
-            document.getElementById('profile-form').classList.add('hidden');
+            const profileForm = document.getElementById('profile-form');
+            const passwordForm = document.getElementById('password-form');
+
+            if (passwordForm.style.display === "none") {
+                passwordForm.style.display = "block";
+                profileForm.style.display = "none";
+            } else {
+                passwordForm.style.display = "none";
+            }
         }
     </script>
+
+    <!-- Bootstrap JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 @endsection

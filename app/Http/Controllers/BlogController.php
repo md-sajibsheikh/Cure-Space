@@ -8,7 +8,8 @@ use RealRashid\SweetAlert\Facades\Alert;
 
 class BlogController extends Controller
 {
-    public function add_blog(){
+    public function add_blog()
+    {
         return view('backend.pages.blog.add-blog');
     }
 
@@ -20,14 +21,14 @@ class BlogController extends Controller
 
         $imagePath = null;
 
-        if ($req->img) { 
+        if ($req->img) {
             $image = $req->img;
             $name = $image->getClientOriginalName();
             $imageName = time() . "_" . $name;
             $imagePath = 'backend/assets/img/blog/' . $imageName;
 
             $image->move(public_path('backend/assets/img/blog'), $imageName);
-            $data['img'] = $imagePath; 
+            $data['img'] = $imagePath;
         }
 
         $data['date'] = $req->date;
@@ -47,7 +48,8 @@ class BlogController extends Controller
         return view('backend.pages.blog.all-blog', ['blogs' => $blogs]);
     }
 
-    public function edit_blog($id){
+    public function edit_blog($id)
+    {
         $blogs = Blog::where('id', $id)->first();
 
         return view('backend.pages.blog.edit-blog', ['blog' => $blogs]);
@@ -60,7 +62,7 @@ class BlogController extends Controller
             return redirect()->route('all-blog')->with('error', 'Blog not found.');
         }
 
-        $data = []; 
+        $data = [];
         if ($req->img) {
             if (file_exists(public_path($blog->img))) {
                 unlink(public_path($blog->img));
@@ -79,7 +81,7 @@ class BlogController extends Controller
         $data['title'] = $req->title;
         $data['subtitle'] = $req->subtitle;
 
-        $blog->update($data); 
+        $blog->update($data);
 
         return redirect()->route('all-blog');
     }
@@ -102,8 +104,4 @@ class BlogController extends Controller
             return redirect()->back();
         }
     }
-
-
-
-
 }

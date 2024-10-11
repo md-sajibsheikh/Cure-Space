@@ -20,36 +20,38 @@
 <!-- Header End -->
 
 
-<!-- About Start -->@foreach($about as $abouts)
+<!-- About Start -->
+@foreach($about as $abouts)
 <div class="container-fluid about bg-light py-5">
     <div class="container py-5">
         <div class="row g-5 align-items-center">
             <div class="col-lg-5 wow fadeInLeft" data-wow-delay="0.2s">
                 <div class="about-img pb-5 ps-5">
-                    <img src="frontend/img/about-1.jpg" class="img-fluid rounded w-100" style="object-fit: cover;" alt="Image">
+                    <img src="{{ $abouts->img ? asset($abouts->img) : asset('default-image.jpg') }}" class="img-fluid rounded w-100" style="object-fit: cover;" alt="About Image">
                     <div class="about-img-inner">
-                        <img src="frontend/img/about-2.jpg" class="img-fluid rounded-circle w-100 h-100" alt="Image">
+                        <img src="{{ $abouts->img_hero ? asset($abouts->img_hero) : asset('default-hero-image.jpg') }}" class="img-fluid rounded-circle w-100 h-100" alt="Hero Image">
                     </div>
-
-                    <div class="about-experience p-2">{{$abouts->experience}}years experience</div>
+                    <div class="about-experience p-2">{{ $abouts->experience ?? 0 }} years experience</div>
                 </div>
             </div>
             <div class="col-lg-7 wow fadeInRight" data-wow-delay="0.4s">
                 <div class="section-title text-start mb-5">
                     <h4 class="sub-title pe-3 mb-0">About Us</h4>
-                    <h1 class="display-3 mb-4">{{$abouts->title}}</h1>
-                    <p class="mb-4">{{$abouts->description}}</p>
+                    <h1 class="display-3 mb-4">{{ $abouts->title }}</h1>
+                    <p class="mb-4">{{ $abouts->description }}</p>
                     <div class="mb-4">
-                        <p class="text-secondary"><i class=" {{$abouts->touch1 ? 'fa fa-check text-primary me-2':''}} "></i> {{$abouts->touch1}}</p>
-                        <p class="text-secondary"><i class=" {{$abouts->touch1 ? 'fa fa-check text-primary me-2':''}}"></i>{{$abouts->touch2}}</p>
-                        <p class="text-secondary"><i class=" {{$abouts->touch1 ? 'fa fa-check text-primary me-2':''}} "></i>{{$abouts->touch3}}</p>
+                        <p class="text-secondary"><i class="{{ $abouts->touch1 ? 'fa fa-check text-primary me-2' : '' }}"></i> {{ $abouts->touch1 }}</p>
+                        <p class="text-secondary"><i class="{{ $abouts->touch2 ? 'fa fa-check text-primary me-2' : '' }}"></i> {{ $abouts->touch2 }}</p>
+                        <p class="text-secondary"><i class="{{ $abouts->touch3 ? 'fa fa-check text-primary me-2' : '' }}"></i> {{ $abouts->touch3 }}</p>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!-- About End -->@endforeach
+<!-- About End -->
+@endforeach
+
 
 
 <!-- Team Start -->

@@ -39,7 +39,7 @@
                         <td class="py-4 px-4 text-center">{{$data->date}}</td>
                         <td class="py-4 px-4 text-center">{{$data->department}}</td>
                         <td class="py-4 px-4 text-center">{{$data->comments}}</td>
-                        <td class="py-4 px-6 text-center">
+                        <td class="py-4 px-6">
                             @if ($data->status == 'accepted')
                             <span class="inline-block px-3 py-1 text-sm font-semibold bg-green-100 text-green-600 rounded-full">Accepted</span>
                             @elseif ($data->status == 'rejected')
@@ -48,16 +48,16 @@
                             <span class="inline-block px-3 py-1 text-sm font-semibold bg-yellow-100 text-yellow-600 rounded-full">Pending</span>
                             @endif
                         </td>
-                        <td class="py-4 px-6 text-center">
-                            <div class="flex justify-center space-x-2">
+                        <td class="py-4 px-6">
+                            <div class="flex space-x-2">
                                 @if ($data->status !== 'accepted')
-                                <form action="{{ route('contact.accept', $data->id) }}" method="POST">
+                                <form action="{{ route('posts.accept', $data->id) }}" method="POST">
                                     @csrf
                                     <button type="submit" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded shadow-sm text-sm">Accept</button>
                                 </form>
                                 @endif
                                 @if ($data->status !== 'rejected')
-                                <form action="{{ route('contact.reject', $data->id) }}" method="POST">
+                                <form action="{{ route('posts.reject', $data->id) }}" method="POST">
                                     @csrf
                                     <button type="submit" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded shadow-sm text-sm">Reject</button>
                                 </form>

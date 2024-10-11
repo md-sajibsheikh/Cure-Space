@@ -20,13 +20,10 @@ class ProfileController extends Controller
 {
     $user = Auth::user();
 
-    // Handle profile image upload
     if (!is_dir(public_path('backend/assets/img/profile'))) {
         mkdir(public_path('backend/assets/img/profile'), 0777, true);
     }
-
     $imagePath = $user->img; 
-
     if ($request->img) {
         $image = $request->img;
         $name = $image->getClientOriginalName();
@@ -35,36 +32,25 @@ class ProfileController extends Controller
 
         $image->move(public_path('backend/assets/img/profile'), $imageName);
     }
-
     $user->update([
         'name' => $request->name,
         'email' => $request->email,
         'phone' => $request->phone,
         'img' => $imagePath,
     ]);
-
     return back()->with('success', 'Profile updated successfully!');
 }
-
     public function updatePassword(Request $request)
     {
         $user = Auth::user();
-
-        
-
         if (!Hash::check($request->current_password, $user->password)) {
-
             Alert::error('Error', 'Current password is incorrect');
             return back();
         }
-
         $user->update([
             'password' => Hash::make($request->new_password),
         ]);
-
         Alert::success('Success', 'Password updated successfully!');
         return back();
     }
-
-
 }

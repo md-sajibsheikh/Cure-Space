@@ -35,7 +35,6 @@
                                     <h5 class="mb-2"><i class="fa fa-check text-primary me-2"></i> Body Relaxation</h5>
                                     <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et deserunt qui cupiditate veritatis enim ducimus.</p>
                                 </div>
-
                             </div>
                         </div>
                         <div class="col-sm-6">
@@ -50,26 +49,26 @@
                 </div>
             </div>
             <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
-                <div class="appointment-form rounded p-5">
+                <div class="appointment-form rounded p-5"> <!-- sky-200 color -->
                     <p class="fs-4 text-uppercase text-primary">Get In Touch</p>
-                    <h1 class="display-5 mb-4">Get Appointment</h1>
+                    <h1 class="display-5 mb-4 text-dark">Get Appointment</h1> <!-- text color dark -->
                     <form action="{{route('bookingData')}}" method="post">
                         @csrf
 
                         <input type="hidden" name="user_id" value="{{Auth::user()->id ?? ''}}">
                         <div class="row gy-3 gx-4">
                             <div class="col-xl-6">
-                                <input type="text" class="form-control py-3 border-primary bg-transparent text-white" placeholder="First Name" name="name">
+                                <input type="text" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="First Name" name="name"> <!-- text color dark -->
                             </div>
 
                             <div class="col-xl-6">
-                                <input type="email" class="form-control py-3 border-primary bg-transparent text-white" placeholder="Email" name="email">
+                                <input type="email" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="Email" name="email"> <!-- text color dark -->
                             </div>
                             <div class="col-xl-6">
-                                <input type="phone" class="form-control py-3 border-primary bg-transparent" placeholder="Phone" name="phone">
+                                <input type="phone" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="Phone" name="phone"> <!-- text color dark -->
                             </div>
                             <div class="col-xl-6">
-                                <select class="form-select py-3 border-primary bg-transparent" aria-label="Default select example" name="gender">
+                                <select class="form-select py-3 border-primary bg-transparent text-dark" aria-label="Default select example" name="gender">
                                     <option selected>Your Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="FeMale">FeMale</option>
@@ -77,10 +76,10 @@
                                 </select>
                             </div>
                             <div class="col-xl-6">
-                                <input type="date" name="date" class="form-control py-3 border-primary bg-transparent">
+                                <input type="date" name="date" class="form-control py-3 border-primary bg-transparent text-dark"> <!-- text color dark -->
                             </div>
                             <div class="col-xl-6">
-                                <select class="form-select py-3 border-primary bg-transparent" aria-label="Default select example" name="department">
+                                <select class="form-select py-3 border-primary bg-transparent text-dark" aria-label="Default select example" name="department">
                                     <option selected>Department</option>
                                     <option value="Physiotherapy">Physiotherapy</option>
                                     <option value="Physical-Helth">Physical-Helth</option>
@@ -88,7 +87,7 @@
                                 </select>
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control border-primary bg-transparent text-white" name="comments" id="area-text" cols="30" rows="5" placeholder="Write Comments"></textarea>
+                                <textarea class="form-control border-primary bg-transparent text-dark" name="comments" id="area-text" cols="30" rows="5" placeholder="Write Comments"></textarea> <!-- text color dark -->
                             </div>
 
                             @if(Auth::check())
@@ -99,7 +98,6 @@
                             <div class="col-12">
                                 <a href="{{route('login')}}" class="btn btn-primary text-white w-100 py-3 px-5">SUBMIT NOW</a>
                             </div>
-
                             @endif
                         </div>
                     </form>

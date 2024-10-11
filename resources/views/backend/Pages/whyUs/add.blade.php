@@ -1,11 +1,11 @@
 @extends('admin')
 
 @section('main-content')
-<div class="content-wrapper bg-gray-100 min-h-screen p-6">
+<div class="content-wrapper bg-gray-100 min-h-screen p-4">
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container mx-auto">
-            <div class="flex justify-between items-center mb-4">
+            <div class="flex justify-between items-center mb-3">
                 <div></div>
                 <div>
                     <nav class="flex space-x-2 mt-1 text-gray-500">
@@ -39,7 +39,7 @@
                             <label for="imageUpload" class="block px-4 py-2 bg-gray-200 text-gray-700 cursor-pointer rounded-lg shadow-inner transition duration-200 ease-in-out transform hover:bg-gray-300">Choose file</label>
                         </div>
                         <!-- Image preview -->
-                        <img id="imagePreview" class="mt-4 hidden border border-gray-300 rounded-lg shadow-lg" style="max-width: 150px; max-height: 150px;" />
+                        <img id="imagePreview" class="mt-2 hidden border border-gray-300 rounded-lg shadow-lg" style="max-width: 150px; max-height: 150px;" />
                     </div>
 
                     <!-- Title Input -->

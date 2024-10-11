@@ -22,19 +22,16 @@ class UserController extends Controller
     public function signupData(Request $req)
     {
         $req->validate([
-            'name' => 'required|string',
+            'name' => 'required|regex:/^[a-zA-Z\s]+$/|string',
             'email' => 'required|email|unique:users,email|',
             'phone' => 'required|numeric|digits_between:9,13',
             'password' => 'required|min:8|confirmed',
             'img' => 'nullable|image|mimes:jpg,jpeg,png,gif',
         ]);
-
         if (!is_dir(public_path('form/img/profile/'))) {
             mkdir(public_path('form/img/profile/'), 0777, true);
         }
-
         $data = [];
-
         if ($req->hasFile('img')) {
             $image = $req->file('img');
             $name = $image->getClientOriginalName();
@@ -54,7 +51,6 @@ class UserController extends Controller
         Alert::success('Success!', 'Your account has been create');
         return redirect()->route('login');
     }
-
     public function loginCheck(Request $req)
     {
         if (Auth::attempt(['email' => $req->email, 'password' => $req->password])) {

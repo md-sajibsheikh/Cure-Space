@@ -11,7 +11,6 @@ class BookingController extends Controller
 {
     public function bookingData(Request $req)
     {
-
         $data['name'] = $req->name;
         $data['email'] = $req->email;
         $data['phone'] = $req->phone;
@@ -20,24 +19,16 @@ class BookingController extends Controller
         $data['department'] = $req->department;
         $data['comments'] = $req->comments;
         $data['user_id'] = $req->user_id;
-
-
-
         Booking::create($data);
-
         Alert::success('Success', 'Your booking is confirmed');
-
         return redirect()->back();
     }
 
     public function bookingList()
     {
-       
+
         $data = Booking::with('user')->get();
-
-        
-
-       return view('backend.pages.bookingList', ['Book' => $data]);
+        return view('backend.pages.bookingList', ['Book' => $data]);
     }
 
     public function accept($id)
@@ -45,17 +36,14 @@ class BookingController extends Controller
         $post = Booking::findOrFail($id);
         $post->status = 'accepted';
         $post->save();
-
         return redirect()->back();
     }
 
-    // admin status rejected 
     public function reject($id)
     {
         $post = Booking::findOrFail($id);
         $post->status = 'rejected';
         $post->save();
-
         return redirect()->back();
     }
 }

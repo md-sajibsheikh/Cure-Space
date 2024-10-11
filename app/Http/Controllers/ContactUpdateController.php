@@ -31,15 +31,12 @@ class ContactUpdateController extends Controller
             'contactus' => $req->contactus,
             'getintouch' => $req->getintouch,
         ];
-
-
         $datas = ContactUpdate::first();
         if ($datas) {
             $datas->update($data);
         } else {
             ContactUpdate::create($data);
         }
-
         return redirect()->back();
     }
 }

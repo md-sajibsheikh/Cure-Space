@@ -13,24 +13,21 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-public function admin()
-{
-// Fetching users data (if you need to pass user data to the view)
-$users = User::all(); // Use `all()` to get all users
+    public function admin()
+    {
+        $users = User::all();
 
-// Counting total records for Contact, TeamAdded, Booking, and Service
-$totalContacts = Contact::count(); // Total contacts
-$totalMembers = TeamAdded::count(); // Total team members
-$totalBookings = Booking::count(); // Total bookings
-$totalServices = Service::count(); // Total services
+        $totalContacts = Contact::count();
+        $totalMembers = TeamAdded::count();
+        $totalBookings = Booking::count();
+        $totalServices = Service::count();
 
-// Returning data to the view
-return view('backend.pages.home', [
-'data' => $users, // Passing users data
-'totalContacts' => $totalContacts, // Passing total contacts
-'totalMembers' => $totalMembers, // Passing total team members
-'totalBookings' => $totalBookings, // Passing total bookings
-'totalServices' => $totalServices, // Passing total services
-]);
-}
+        return view('backend.pages.home', [
+            'data' => $users,
+            'totalContacts' => $totalContacts,
+            'totalMembers' => $totalMembers,
+            'totalBookings' => $totalBookings,
+            'totalServices' => $totalServices,
+        ]);
+    }
 }
