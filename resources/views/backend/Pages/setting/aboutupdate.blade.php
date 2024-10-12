@@ -15,7 +15,6 @@
             width: 100%;
             height: auto;
             max-height: 200px;
-            /* Limit height for preview */
             object-fit: cover;
             margin-top: 10px;
         }
@@ -33,6 +32,11 @@
         </div>
         @endif
 
+        <!-- Display validation errors (SweetAlert popup for each input field) -->
+        @if ($errors->any())
+        
+        @endif
+
         <form id="inputForm" action="{{ route('site.aboutstore') }}" method="POST" enctype="multipart/form-data">
             @csrf
 
@@ -41,6 +45,11 @@
                 <label for="experience" class="block text-gray-700">Experience (Years):</label>
                 <input type="number" id="experience" name="experience" value="{{ old('experience', $about->experience ?? '') }}"
                     class="mt-1 block w-full md:w-1/4 p-2 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" required>
+
+                <!-- Show field-specific validation error -->
+                @if ($errors->has('experience'))
+                <span class="text-red-500 text-sm">{{ $errors->first('experience') }}</span>
+                @endif
             </div>
 
             <!-- Title Input Field -->
@@ -48,6 +57,11 @@
                 <label for="title" class="block text-gray-700">Title:</label>
                 <input type="text" id="title" name="title" value="{{ old('title', $about->title ?? '') }}"
                     class="mt-1 p-2 block w-full md:w-3/4 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" required>
+
+                <!-- Show field-specific validation error -->
+                @if ($errors->has('title'))
+                <span class="text-red-500 text-sm">{{ $errors->first('title') }}</span>
+                @endif
             </div>
 
             <!-- Description Input Field -->
@@ -55,6 +69,11 @@
                 <label for="description" class="block text-gray-700">Description:</label>
                 <textarea id="description" name="description" rows="4"
                     class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" required>{{ old('description', $about->description ?? '') }}</textarea>
+
+                <!-- Show field-specific validation error -->
+                @if ($errors->has('description'))
+                <span class="text-red-500 text-sm">{{ $errors->first('description') }}</span>
+                @endif
             </div>
 
             <!-- Options Input Fields (Checkboxes) -->
@@ -84,8 +103,10 @@
                 <input type="file" id="img" name="img" accept="image/*"
                     class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" onchange="previewImage(event, 'imgPreview')">
 
-                <!-- Displaying the previously uploaded image if it exists -->
-
+                <!-- Show field-specific validation error -->
+                @if ($errors->has('img'))
+                <span class="text-red-500 text-sm">{{ $errors->first('img') }}</span>
+                @endif
             </div>
 
             <div class="mb-4">
@@ -93,8 +114,10 @@
                 <input type="file" id="img_hero" name="img_hero" accept="image/*"
                     class="mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200" onchange="previewImage(event, 'imgHeroPreview')">
 
-                <!-- Displaying the previously uploaded hero image if it exists -->
-             
+                <!-- Show field-specific validation error -->
+                @if ($errors->has('img_hero'))
+                <span class="text-red-500 text-sm">{{ $errors->first('img_hero') }}</span>
+                @endif
             </div>
 
             <div class="flex justify-end">
@@ -103,7 +126,8 @@
         </form>
     </div>
 
-    
+    <!-- Include SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>

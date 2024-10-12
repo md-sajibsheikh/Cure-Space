@@ -34,9 +34,11 @@ class WhyUsController extends Controller
 
     public function all_choose()
     {
-        $choose = WhyUs::all();
+        $choose = WhyUs::orderBy('created_at', 'desc')->get();
+
         return view('backend.pages.whyus.all-choose', ['datas' => $choose]);
     }
+
 
     public function edit($id)
     {

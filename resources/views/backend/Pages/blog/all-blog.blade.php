@@ -21,7 +21,7 @@
                     <td class="py-3 px-6 text-left">
                         <img src="{{ asset($blog->img) }}" alt="Blog Image" class="w-16 h-16 object-cover rounded">
                     </td>
-                    <td class="py-3 px-6 text-left">{{$blog->date}}</td>
+                    <td class="py-3 px-6 text-left">{{ \Carbon\Carbon::parse($blog->created_at)->format('d F Y') }}</td>
                     <td class="py-3 px-6 text-left">{{$blog->title}}</td>
                     <td class="py-3 px-6 text-left">{{$blog->subtitle}}</td>
                     <td class="py-3 px-6 text-left">

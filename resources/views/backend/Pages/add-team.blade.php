@@ -5,7 +5,6 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container mx-auto">
-           
         </div>
     </div>
     <!-- /.content-header -->
@@ -24,10 +23,9 @@
                     @csrf
                     <!-- Profile Photo Upload -->
                     <div>
-
                         <label for="exampleInputFile" class="block text-sm font-medium text-gray-700">Upload Profile Photo</label>
                         <div class="flex items-center mt-2">
-                            <input type="file" name="img" class="hidden" id="exampleInputFile" onchange="previewImage(event)">
+                            <input type="file" name="img" class="hidden" id="exampleInputFile" onchange="previewImage(event)" required>
                             <label for="exampleInputFile" class="block px-4 py-2 bg-gray-200 text-gray-700 cursor-pointer rounded-lg shadow-inner transition duration-200 ease-in-out transform hover:bg-gray-300">Choose file</label>
                         </div>
                         <!-- Image preview -->
@@ -37,34 +35,34 @@
                     <!-- Full Name Input -->
                     <div>
                         <label for="title" class="block text-sm font-medium text-gray-700">Full Name</label>
-                        <input type="text" name="name" class="form-control w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-200 ease-in-out" id="title" placeholder="Full Name">
+                        <input type="text" name="name" class="form-control w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-200 ease-in-out" id="title" placeholder="Full Name" required>
                     </div>
 
                     <!-- Social Links Inputs -->
                     <div>
                         <label for="facebook" class="block text-sm font-medium text-gray-700">Facebook</label>
-                        <input type="link" name="facebook" class="form-control w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-200 ease-in-out" id="facebook" placeholder="Enter Facebook link">
+                        <input type="url" name="facebook" class="form-control w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-200 ease-in-out" id="facebook" placeholder="Enter Facebook link" required>
                     </div>
 
                     <div>
                         <label for="twitter" class="block text-sm font-medium text-gray-700">Twitter</label>
-                        <input type="text" name="twitter" class="form-control w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-200 ease-in-out" id="twitter" placeholder="Enter Twitter link">
+                        <input type="url" name="twitter" class="form-control w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-200 ease-in-out" id="twitter" placeholder="Enter Twitter link" required>
                     </div>
 
                     <div>
                         <label for="instagram" class="block text-sm font-medium text-gray-700">Instagram</label>
-                        <input type="text" name="instagram" class="form-control w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-200 ease-in-out" id="instagram" placeholder="Enter Instagram link">
+                        <input type="url" name="instagram" class="form-control w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-200 ease-in-out" id="instagram" placeholder="Enter Instagram link" required>
                     </div>
 
                     <div>
                         <label for="linkedin" class="block text-sm font-medium text-gray-700">Linkedin</label>
-                        <input type="text" name="linkedin" class="form-control w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-200 ease-in-out" id="linkedin" placeholder="Enter Linkedin link">
+                        <input type="url" name="linkedin" class="form-control w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-200 ease-in-out" id="linkedin" placeholder="Enter Linkedin link" required>
                     </div>
 
                     <!-- Service Selection -->
                     <h5 class="text-lg font-semibold mt-4 mb-2">Services</h5>
                     <div class="p-1">
-                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-200 ease-in-out" name="services">
+                        <select class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-200 ease-in-out" name="services" required>
                             <option disabled selected value="Select Services">Select Services</option>
                             <option value="Message Physio Therapist">Message Physio Therapist</option>
                             <option value="Rehabilitation Therapist">Rehabilitation Therapist</option>

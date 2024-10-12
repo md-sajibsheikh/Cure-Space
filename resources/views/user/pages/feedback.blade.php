@@ -35,7 +35,7 @@
 
 <body class="bg-light d-flex justify-content-center align-items-center min-vh-100">
 
-    <div class="card shadow-lg mt-8 px-4 mx-8" style="margin-top: 40px; margin-left: 22%; border-radius: 10px;    width: 100%;  max-width: 600px;">
+    <div class="card shadow-lg mt-8 px-4 mx-8" style="margin-top: 40px; margin-left: 22%; border-radius: 10px; width: 100%; max-width: 600px;">
         <div class="card-body">
             <h2 class="card-title text-center text-primary">Feedback Form</h2>
 
@@ -48,7 +48,7 @@
                 <div class="form-group">
                     <label for="location">Location</label>
                     <input type="text" id="location" name="location" value="{{ old('location') }}" placeholder="Enter your location"
-                        class="form-control @error('location') is-invalid @enderror">
+                        class="form-control @error('location') is-invalid @enderror" required>
                     @error('location')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror
@@ -58,19 +58,19 @@
                 <div class="form-group">
                     <label>Rating</label>
                     <div class="d-flex">
-                        <input type="radio" id="star1" name="rating" value="1" class="d-none" {{ old('rating') == 1 ? 'checked' : '' }}>
+                        <input type="radio" id="star1" name="rating" value="1" class="d-none" {{ old('rating') == 1 ? 'checked' : '' }} required>
                         <label for="star1" class="star" onclick="selectRating(1);">&#9733;</label>
 
-                        <input type="radio" id="star2" name="rating" value="2" class="d-none" {{ old('rating') == 2 ? 'checked' : '' }}>
+                        <input type="radio" id="star2" name="rating" value="2" class="d-none" {{ old('rating') == 2 ? 'checked' : '' }} required>
                         <label for="star2" class="star" onclick="selectRating(2);">&#9733;</label>
 
-                        <input type="radio" id="star3" name="rating" value="3" class="d-none" {{ old('rating') == 3 ? 'checked' : '' }}>
+                        <input type="radio" id="star3" name="rating" value="3" class="d-none" {{ old('rating') == 3 ? 'checked' : '' }} required>
                         <label for="star3" class="star" onclick="selectRating(3);">&#9733;</label>
 
-                        <input type="radio" id="star4" name="rating" value="4" class="d-none" {{ old('rating') == 4 ? 'checked' : '' }}>
+                        <input type="radio" id="star4" name="rating" value="4" class="d-none" {{ old('rating') == 4 ? 'checked' : '' }} required>
                         <label for="star4" class="star" onclick="selectRating(4);">&#9733;</label>
 
-                        <input type="radio" id="star5" name="rating" value="5" class="d-none" {{ old('rating') == 5 ? 'checked' : '' }}>
+                        <input type="radio" id="star5" name="rating" value="5" class="d-none" {{ old('rating') == 5 ? 'checked' : '' }} required>
                         <label for="star5" class="star" onclick="selectRating(5);">&#9733;</label>
                     </div>
                     @error('rating')
@@ -82,7 +82,7 @@
                 <div class="form-group">
                     <label for="feedback">Feedback</label>
                     <textarea id="feedback" name="feedback" placeholder="Enter your feedback" rows="4"
-                        class="form-control @error('feedback') is-invalid @enderror">{{ old('feedback') }}</textarea>
+                        class="form-control @error('feedback') is-invalid @enderror" required>{{ old('feedback') }}</textarea>
                     @error('feedback')
                     <div class="invalid-feedback">{{ $message }}</div>
                     @enderror

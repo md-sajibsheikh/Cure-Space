@@ -21,19 +21,22 @@
                     <!-- Image Upload -->
                     <div class="mb-4">
                         <label for="image" class="block text-sm font-medium text-gray-700">Upload Image</label>
-                        <input type="file" id="image" name="img" accept="image/*" class="mt-1 block w-full text-gray-700 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" onchange="previewImage(event)">
+                        <input type="file" id="image" name="img" accept="image/*" class="mt-1 block w-full text-gray-700 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" onchange="previewImage(event)" required>
                     </div>
 
+                    <!-- Service Name -->
                     <div class="mb-4">
                         <label for="service" class="block text-sm font-medium text-gray-700">Service Name</label>
-                        <input type="text" id="service" name="service_name" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <input type="text" id="service" name="service_name" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                     </div>
 
+                    <!-- Title -->
                     <div class="mb-4">
                         <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-                        <input type="text" id="title" name="title" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <input type="text" id="title" name="title" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
                     </div>
 
+                    <!-- Submit Button -->
                     <button type="submit" class="w-full bg-indigo-600 text-white py-2 px-4 rounded-md shadow hover:bg-indigo-700">Add Service</button>
                 </form>
             </div>

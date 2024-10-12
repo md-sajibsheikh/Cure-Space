@@ -25,7 +25,7 @@
             <!-- Logo Image -->
             <div class="mb-4">
                 <label for="logo_img" class="block text-gray-700 font-medium">Upload Logo Image</label>
-                <input type="file" id="logo_img" name="img" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" onchange="previewImage(event, 'logoPreview')">
+                <input type="file" id="logo_img" name="img" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" onchange="previewImage(event, 'logoPreview')" >
 
                 <!-- Logo Image Preview -->
                 <img id="logoPreview" class="mt-4 w-40 h-40 object-cover rounded shadow" src="{{ asset($NavbarView['img'] ?? '') }}" alt="Logo Preview">
@@ -34,25 +34,25 @@
             <!-- Site Name -->
             <div class="mb-4">
                 <label for="site_name" class="block text-gray-700 font-medium">Site Name</label>
-                <input type="text" id="site_name" name="site_name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" placeholder="Enter your site name" value="{{ old('site_name', $NavbarView['site_name'] ?? '') }}">
+                <input type="text" id="site_name" name="site_name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" placeholder="Enter your site name" value="{{ old('site_name', $NavbarView['site_name'] ?? '') }}" required>
             </div>
 
             <!-- Title -->
             <div class="mb-4">
                 <label for="title" class="block text-gray-700 font-medium">Title</label>
-                <input type="text" id="title" name="title" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" placeholder="Enter your site title" value="{{ old('title', $NavbarView['title'] ?? '') }}">
+                <input type="text" id="title" name="title" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" placeholder="Enter your site title" value="{{ old('title', $NavbarView['title'] ?? '') }}" required>
             </div>
 
             <!-- Subtitle -->
             <div class="mb-4">
                 <label for="subtitle" class="block text-gray-700 font-medium">Subtitle</label>
-                <input type="text" id="subtitle" name="subtitle" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" placeholder="Enter your site subtitle" value="{{ old('subtitle', $NavbarView['subtitle'] ?? '') }}">
+                <input type="text" id="subtitle" name="subtitle" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" placeholder="Enter your site subtitle" value="{{ old('subtitle', $NavbarView['subtitle'] ?? '') }}" required>
             </div>
 
             <!-- Description -->
             <div class="mb-4">
                 <label for="description" class="block text-gray-700 font-medium">Description</label>
-                <textarea id="description" name="description" rows="3" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" placeholder="Enter title description">{{ old('description', $NavbarView['description'] ?? '') }}</textarea>
+                <textarea id="description" name="description" rows="3" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" placeholder="Enter title description" required>{{ old('description', $NavbarView['description'] ?? '') }}</textarea>
             </div>
 
             <!-- Hero Images -->
@@ -72,18 +72,18 @@
                 <!-- Hero Image 1 -->
                 <div class="mb-4 w-1/2 pr-2">
                     <label for="heroimg_1" class="block text-gray-700 font-medium">Upload Hero 1 Image</label>
-                    <input type="file" id="heroimg_1" name="heroimg_1" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" onchange="previewImage(event, 'heroPreview1')">
+                    <input type="file" id="heroimg_1" name="heroimg_1" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" onchange="previewImage(event, 'heroPreview1')" >
                 </div>
 
                 <!-- Hero Image 2 -->
                 <div class="mb-4 w-1/2 pl-2">
                     <label for="heroimg_2" class="block text-gray-700 font-medium">Upload Hero 2 Image</label>
-                    <input type="file" id="heroimg_2" name="heroimg_2" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" onchange="previewImage(event, 'heroPreview2')">
+                    <input type="file" id="heroimg_2" name="heroimg_2" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:border-indigo-500" onchange="previewImage(event, 'heroPreview2')" >
                 </div>
             </div>
 
             <!-- Submit Button -->
-            <div class="text-center ">
+            <div class="text-center">
                 <button type="submit" class="bg-indigo-600 text-white px-6 py-2 w-full rounded-lg hover:bg-indigo-700">Submit</button>
             </div>
 

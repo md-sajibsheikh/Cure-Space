@@ -35,47 +35,80 @@
                     @csrf
                     <input type="hidden" name="user_id" value="{{ Auth::user()->id ?? '' }}">
                     <div class="row g-3">
+                        <!-- Name Field -->
                         <div class="col-lg-12 col-xl-6">
                             <div class="form-floating">
-                                <input type="text" class="form-control bg-transparent border border-white" name="name" id="name" placeholder="Your Name">
+                                <input type="text" value="{{ old('name') }}" class="form-control bg-transparent border border-white" name="name" id="name" placeholder="Your Name" required>
                                 <label for="name">Your Name</label>
                             </div>
+                            @error('name')
+                            <div class="text-danger mt-2">{{ $message }}</div> <!-- Error message for name -->
+                            @enderror
                         </div>
+
+                        <!-- Email Field -->
                         <div class="col-lg-12 col-xl-6">
                             <div class="form-floating">
-                                <input type="email" name="email" class="form-control bg-transparent border border-white" id="email" placeholder="Your Email">
+                                <input type="email" value="{{ old('email') }}" name="email" class="form-control bg-transparent border border-white" id="email" placeholder="Your Email" required>
                                 <label for="email">Your Email</label>
                             </div>
+                            @error('email')
+                            <div class="text-danger mt-2">{{ $message }}</div> <!-- Error message for email -->
+                            @enderror
                         </div>
+
+                        <!-- Phone Field -->
                         <div class="col-lg-12 col-xl-6">
                             <div class="form-floating">
-                                <input type="tel" name="phone" class="form-control bg-transparent border border-white" id="phone" placeholder="Phone">
+                                <input type="tel" value="{{ old('phone') }}" name="phone" class="form-control bg-transparent border border-white" id="phone" placeholder="Phone" required>
                                 <label for="phone">Your Phone</label>
                             </div>
+                            @error('phone')
+                            <div class="text-danger mt-2">{{ $message }}</div> <!-- Error message for phone -->
+                            @enderror
                         </div>
+
+                        <!-- Project Field -->
                         <div class="col-lg-12 col-xl-6">
                             <div class="form-floating">
-                                <input type="text" name="project" class="form-control bg-transparent border border-white" id="project" placeholder="Project">
+                                <input type="text" value="{{ old('project') }}" name="project" class="form-control bg-transparent border border-white" id="project" placeholder="Project" required>
                                 <label for="project">Your Project</label>
                             </div>
+                            @error('project')
+                            <div class="text-danger mt-2">{{ $message }}</div> <!-- Error message for project -->
+                            @enderror
                         </div>
+
+                        <!-- Subject Field -->
                         <div class="col-12">
                             <div class="form-floating">
-                                <input type="text" name="subject" class="form-control bg-transparent border border-white" id="subject" placeholder="Subject">
+                                <input type="text" value="{{ old('subject') }}" name="subject" class="form-control bg-transparent border border-white" id="subject" placeholder="Subject" required>
                                 <label for="subject">Subject</label>
                             </div>
+                            @error('subject')
+                            <div class="text-danger mt-2">{{ $message }}</div> <!-- Error message for subject -->
+                            @enderror
                         </div>
+
+                        <!-- Message Field -->
                         <div class="col-12">
                             <div class="form-floating">
-                                <textarea class="form-control bg-transparent border border-white" name="message" placeholder="Leave a message here" id="message" style="height: 160px"></textarea>
+                                <textarea class="form-control bg-transparent border border-white" name="message" placeholder="Leave a message here" id="message" style="height: 160px" required>{{ old('message') }}</textarea>
                                 <label for="message">Message</label>
                             </div>
+                            @error('message')
+                            <div class="text-danger mt-2">{{ $message }}</div> <!-- Error message for message -->
+                            @enderror
                         </div>
+
+                        <!-- Submit Button -->
                         <div class="col-12">
                             <button type="submit" class="btn btn-light text-primary w-100 py-3">Send Message</button>
                         </div>
                     </div>
                 </form>
+
+
             </div>
             <!-- Contact Form End -->
 

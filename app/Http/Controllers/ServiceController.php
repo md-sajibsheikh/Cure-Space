@@ -15,9 +15,10 @@ class ServiceController extends Controller
 
     public function service_list()
     {
-        $data = Service::get();
+        $data = Service::orderBy('created_at', 'desc')->get();
         return view('backend.pages.services.service-list', ['list' => $data]);
     }
+
 
     public function service_store(Request $req)
     {

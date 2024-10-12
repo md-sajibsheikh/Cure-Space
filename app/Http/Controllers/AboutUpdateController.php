@@ -3,6 +3,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AboutUpdate;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AboutUpdateController extends Controller
 {
@@ -40,11 +41,14 @@ class AboutUpdateController extends Controller
         $existingData = AboutUpdate::first();
         if ($existingData) {
             $existingData->update($data);
+            Alert::success('success','About page Update successfully');
         } else {
             AboutUpdate::create($data);
+            Alert::success('success', 'About page ceate successfully');
+
         }
 
-        return redirect()->back()->with('success', 'About information updated successfully!');
+        return redirect()->back();
     }
 
     private function handleImageUpload(Request $request, $inputName, &$data, $directory)

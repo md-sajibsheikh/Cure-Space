@@ -10,8 +10,6 @@
 
     <img id="imagePreview" src="{{ asset($blog->img) }}" alt="Current Image" class="mt-2 w-32 h-32 object-cover rounded-md" />
 
-    <label for="date" class="block mt-4 mb-2 text-sm font-medium text-gray-700">Date:</label>
-    <input type="date" id="date" value="{{ $blog->date }}" name="date" required class="block w-full p-2 border border-gray-300 rounded-md" />
 
     <label for="title" class="block mt-4 mb-2 text-sm font-medium text-gray-700">Title:</label>
     <input type="text" id="title" name="title" value="{{ $blog->title }}" required class="block w-full p-2 border border-gray-300 rounded-md" />

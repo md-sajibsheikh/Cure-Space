@@ -184,45 +184,66 @@
                 </div>
             </div>
             <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
-                <div class="appointment-form rounded p-5" > <!-- sky-200 color -->
+                <div class="appointment-form rounded p-5"> <!-- sky-200 color -->
                     <p class="fs-4 text-uppercase text-primary">Get In Touch</p>
                     <h1 class="display-5 mb-4 text-dark">Get Appointment</h1> <!-- text color dark -->
-                    <form action="{{route('bookingData')}}" method="post">
+                    <form action="{{ route('bookingData') }}" method="post">
                         @csrf
 
-                        <input type="hidden" name="user_id" value="{{Auth::user()->id ?? ''}}">
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id ?? '' }}">
                         <div class="row gy-3 gx-4">
                             <div class="col-xl-6">
-                                <input type="text" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="First Name" name="name"> <!-- text color dark -->
+                                <input type="text" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="First Name" name="name" required>
+                                @error('name')
+                                <div class="text-danger mt-2">{{ $message }}</div> <!-- Error message for name -->
+                                @enderror
                             </div>
 
                             <div class="col-xl-6">
-                                <input type="email" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="Email" name="email"> <!-- text color dark -->
+                                <input type="email" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="Email" name="email" required>
+                                @error('email')
+                                <div class="text-danger mt-2">{{ $message }}</div> <!-- Error message for email -->
+                                @enderror
                             </div>
                             <div class="col-xl-6">
-                                <input type="phone" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="Phone" name="phone"> <!-- text color dark -->
+                                <input type="tel" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="Phone" name="phone" required>
+                                @error('phone')
+                                <div class="text-danger mt-2">{{ $message }}</div> <!-- Error message for phone -->
+                                @enderror
                             </div>
                             <div class="col-xl-6">
-                                <select class="form-select py-3 border-primary bg-transparent text-dark" aria-label="Default select example" name="gender">
+                                <select class="form-select py-3 border-primary bg-transparent text-dark" aria-label="Default select example" name="gender" required>
                                     <option selected>Your Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="FeMale">FeMale</option>
                                     <option value="Others">Others</option>
                                 </select>
+                                @error('gender')
+                                <div class="text-danger mt-2">{{ $message }}</div> <!-- Error message for gender -->
+                                @enderror
                             </div>
                             <div class="col-xl-6">
-                                <input type="date" name="date" class="form-control py-3 border-primary bg-transparent text-dark"> <!-- text color dark -->
+                                <input type="date" name="date" class="form-control py-3 border-primary bg-transparent text-dark" required>
+                                @error('date')
+                                <div class="text-danger mt-2">{{ $message }}</div> <!-- Error message for date -->
+                                @enderror
                             </div>
                             <div class="col-xl-6">
-                                <select class="form-select py-3 border-primary bg-transparent text-dark" aria-label="Default select example" name="department">
+                                <select class="form-select py-3 border-primary bg-transparent text-dark" aria-label="Default select example" name="department" required>
                                     <option selected>Department</option>
                                     <option value="Physiotherapy">Physiotherapy</option>
                                     <option value="Physical-Helth">Physical-Helth</option>
                                     <option value="Treatments">Treatments</option>
                                 </select>
+                                @error('department')
+                                <div class="text-danger mt-2">{{ $message }}</div> <!-- Error message for department -->
+                                @enderror
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control border-primary bg-transparent text-dark" name="comments" id="area-text" cols="30" rows="5" placeholder="Write Comments"></textarea> <!-- text color dark -->
+                                <textarea class="form-control border-primary bg-transparent text-dark" name="comments" id="area-text" cols="30" rows="5" placeholder="Write Comments" required></textarea>
+                                @error('comments')
+                                <div class="text-danger mt-2">{{ $message }}</div> <!-- Error message for comments -->
+                                @enderror
                             </div>
 
                             @if(Auth::check())
@@ -231,7 +252,7 @@
                             </div>
                             @else
                             <div class="col-12">
-                                <a href="{{route('login')}}" class="btn btn-primary text-white w-100 py-3 px-5">SUBMIT NOW</a>
+                                <a href="{{ route('login') }}" class="btn btn-primary text-white w-100 py-3 px-5">SUBMIT NOW</a>
                             </div>
                             @endif
                         </div>
@@ -242,6 +263,7 @@
     </div>
 </div>
 
+<!-- Book Appointment end -->
 <!-- Modal Video -->
 <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

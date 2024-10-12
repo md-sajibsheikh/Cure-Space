@@ -4,31 +4,6 @@
 <!-- Sale & Revenue Start -->
 <div class="container-fluid pt-4 px-4">
     <div class="row g-4">
-        <!-- First Card with Counter and Icon (Total Contacts) -->
-        <div class="col-sm-6 col-xl-3 mb-4 animate-card">
-            <div class="card bg-light rounded shadow-sm p-4">
-                <div class="card-body text-center">
-                    <i class="bi bi-person-lines-fill fs-2 text-primary mb-3"></i> <!-- Bootstrap Icon for Contacts -->
-                    <h5 class="card-title">Total Contacts</h5>
-                    <p class="card-text">
-                        <span class="counter" data-target="{{ $totalContacts }}">0</span>
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- Second Card with Counter and Icon (Total Members) -->
-        <div class="col-sm-6 col-xl-3 mb-4 animate-card">
-            <div class="card bg-light rounded shadow-sm p-4">
-                <div class="card-body text-center">
-                    <i class="bi bi-person-circle fs-2 text-success mb-3"></i> <!-- Bootstrap Icon for Members -->
-                    <h5 class="card-title">Available Therapist</h5>
-                    <p class="card-text">
-                        <span class="counter" data-target="{{ $totalMembers }}">0</span>
-                    </p>
-                </div>
-            </div>
-        </div>
 
         <!-- Third Card with Counter and Icon (Total Bookings) -->
         <div class="col-sm-6 col-xl-3 mb-4 animate-card">
@@ -42,7 +17,6 @@
                 </div>
             </div>
         </div>
-
         <!-- Fourth Card with Counter and Icon (Total Services) -->
         <div class="col-sm-6 col-xl-3 mb-4 animate-card">
             <div class="card bg-light rounded shadow-sm p-4">
@@ -55,6 +29,35 @@
                 </div>
             </div>
         </div>
+
+
+        <!-- Second Card with Counter and Icon (Total Members) -->
+        <div class="col-sm-6 col-xl-3 mb-4 animate-card">
+            <div class="card bg-light rounded shadow-sm p-4">
+                <div class="card-body text-center">
+                    <i class="bi bi-person-circle fs-2 text-success mb-3"></i> <!-- Bootstrap Icon for Members -->
+                    <h5 class="card-title">Available Therapist</h5>
+                    <p class="card-text">
+                        <span class="counter" data-target="{{ $totalMembers }}">0</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- First Card with Counter and Icon (Total Contacts) -->
+        <div class="col-sm-6 col-xl-3 mb-4 animate-card">
+            <div class="card bg-light rounded shadow-sm p-4">
+                <div class="card-body text-center">
+                    <i class="bi bi-person-lines-fill fs-2 text-primary mb-3"></i> <!-- Bootstrap Icon for Contacts -->
+                    <h5 class="card-title">Total Contacts</h5>
+                    <p class="card-text">
+                        <span class="counter" data-target="{{ $totalContacts }}">0</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 </div>
 <!-- Sale & Revenue End -->

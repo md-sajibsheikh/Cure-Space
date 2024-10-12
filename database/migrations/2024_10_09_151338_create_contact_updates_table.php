@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('email')->nullable();
             $table->string('email1')->nullable();
             $table->string('facebook');
+            $table->string('twitter');
             $table->string('linkedin');
             $table->string('instagram');
             $table->string('contactus');

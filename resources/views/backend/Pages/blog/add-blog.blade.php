@@ -13,9 +13,6 @@
         <label for="image" class="block mb-2 text-sm font-medium text-gray-700">Image:</label>
         <input type="file" id="image" name="img" accept="image/*" required class="block w-full p-2 border border-gray-300 rounded-md" />
 
-        <label for="date" class="block mt-4 mb-2 text-sm font-medium text-gray-700">Date:</label>
-        <input type="date" id="date" name="date" required class="block w-full p-2 border border-gray-300 rounded-md" />
-
         <label for="title" class="block mt-4 mb-2 text-sm font-medium text-gray-700">Title:</label>
         <input type="text" id="title" name="title" required class="block w-full p-2 border border-gray-300 rounded-md" />
 

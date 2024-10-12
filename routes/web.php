@@ -58,13 +58,13 @@ Route::get('/logout', [UserController::class, 'logout'])->name('logout');
 Route::post('/login/check', [UserController::class, 'loginCheck'])->name('login.check');
 //Contact me
 Route::post('/contact-Store', [ContactController::class, 'contactStore'])->name('contactStore');
-Route::get('/contact-list', [ContactController::class, 'contactMe'])->name('contact.list');
+Route::get('admin/contact-list', [ContactController::class, 'contactMe'])->name('contact.list');
 
 Route::post('/admin/contact-list/accept/{id}', [ContactController::class, 'accept'])->name('contact.accept');
 Route::post('/admin/contact-list/reject{id}', [ContactController::class, 'reject'])->name('contact.reject');
 //booking
 Route::post('/appointment.data', [BookingController::class, 'bookingData'])->name('bookingData');
-Route::get('/booking-list', [BookingController::class, 'bookingList'])->name('bookingList');
+Route::get('admin/booking-list', [BookingController::class, 'bookingList'])->name('bookingList');
 Route::post('/admin/bookingList/accept/{id}', [BookingController::class, 'accept'])->name('posts.accept');
 Route::post('/admin/bookingList/reject{id}', [BookingController::class, 'reject'])->name('posts.reject');
 //frontend team
@@ -86,28 +86,28 @@ Route::post('admin/setting/pages/about-update', [AboutUpdateController::class, '
 Route::middleware(['admin'])->group(function () {
     Route::get('/admin', [DashboardController::class, 'admin'])->name('admin');
     // Admin services
-    Route::get('/service/add', [ServiceController::class, 'add_service'])->name('add.service');
+    Route::get('admin/service/add', [ServiceController::class, 'add_service'])->name('add.service');
     Route::post('/service/store', [ServiceController::class, 'service_store'])->name('service.store');
-    Route::get('/service/list', [ServiceController::class, 'service_list'])->name('service.list');
+    Route::get('admin/service-list', [ServiceController::class, 'service_list'])->name('service.list');
     Route::get('/service/edit/{id}', [ServiceController::class, 'edit'])->name('service.edit');
     Route::post('/service/update/{id}', [ServiceController::class, 'service_update'])->name('service.update');
     Route::get('/service/delete/{id}', [ServiceController::class, 'delete'])->name('service.delete');
     //admin blog
-    Route::get('add-blog', [BlogController::class, 'add_blog'])->name('add-blog');
-    Route::post('blog-store', [BlogController::class, 'blog_store'])->name('blog-store');
-    Route::get('all-blog', [BlogController::class, 'all_blog'])->name('all-blog');
-    Route::get('edit-blog/{id}', [BlogController::class, 'edit_blog'])->name('edit-blog');
-    Route::post('blog-update/{id}', [BlogController::class, 'blog_update'])->name('blog-update');
-    Route::get('blog-delete/{id}', [BlogController::class, 'delete'])->name('blog-delete');
+    Route::get('admin/add-blog', [BlogController::class, 'add_blog'])->name('add-blog');
+    Route::post('admin/blog-store', [BlogController::class, 'blog_store'])->name('blog-store');
+    Route::get('admin/all-blog', [BlogController::class, 'all_blog'])->name('all-blog');
+    Route::get('admin/edit-blog/{id}', [BlogController::class, 'edit_blog'])->name('edit-blog');
+    Route::post('admin/blog-update/{id}', [BlogController::class, 'blog_update'])->name('blog-update');
+    Route::get('admin/blog-delete/{id}', [BlogController::class, 'delete'])->name('blog-delete');
     //admin team
-    Route::get('/add-team', [TeamController::class, 'add_team'])->name('add.team');
-    Route::post('/team-added', [TeamController::class, 'team_added'])->name('teamAdded');
-    Route::get('/team-list', [TeamController::class, 'team_list'])->name('team.list');
-    Route::get('/team-delete', [TeamController::class, 'team_delete'])->name('delete');
+    Route::get('admin/add-team', [TeamController::class, 'add_team'])->name('add.team');
+    Route::post('admin/team-added', [TeamController::class, 'team_added'])->name('teamAdded');
+    Route::get('admin/team-list', [TeamController::class, 'team_list'])->name('team.list');
+    Route::get('admin/team-delete', [TeamController::class, 'team_delete'])->name('delete');
     //why chooose us
-    Route::get('/add-choose', [WhyUsController::class, 'add_choose'])->name('add-choose');
-    Route::post('/choose-store', [WhyUsController::class, 'choose_store'])->name('choose_store');
-    Route::get('/all-choose', [WhyUsController::class, 'all_choose'])->name('all-choose');
+    Route::get('admin/add-choose', [WhyUsController::class, 'add_choose'])->name('add-choose');
+    Route::post('admin/choose-store', [WhyUsController::class, 'choose_store'])->name('choose_store');
+    Route::get('admin/all-choose', [WhyUsController::class, 'all_choose'])->name('all-choose');
     Route::get('/admin/why-us/edit/{id}', [WhyUsController::class, 'edit'])->name('edit');
     Route::post('/admin/why-us/update/{id}', [WhyUsController::class, 'update'])->name('choose_update');
     Route::get('/admin/why-us/delete/{id}', [WhyUsController::class, 'delete'])->name('whyus.detele');

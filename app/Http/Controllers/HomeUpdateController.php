@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\HomeUpdate;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class HomeUpdateController extends Controller
 {
@@ -44,8 +45,12 @@ class HomeUpdateController extends Controller
         $navbar = HomeUpdate::first();
         if ($navbar) {
             $navbar->update($data);
+            Alert::success('success', 'About page Update successfully');
+
         } else {
             HomeUpdate::create($data);
+            Alert::success('success', 'About page create successfully');
+
         }
         return redirect()->back();
     }

@@ -63,6 +63,10 @@
                     <label for="instagram" class="block text-gray-700 font-semibold mb-2">Instagram</label>
                     <input type="url" id="instagram" name="instagram" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Enter your Instagram URL" required value="{{ old('instagram', $about['instagram'] ?? '') }}">
                 </div>
+                <div class="mb-4">
+                    <label for="twitter" class="block text-gray-700 font-semibold mb-2">twitter</label>
+                    <input type="url" id="twitter" name="twitter" class="w-full p-3 border border-gray-300 rounded-md" placeholder="Enter your Instagram URL" required value="{{ old('instagram', $about['instagram'] ?? '') }}">
+                </div>
 
                 <!-- Contact Us Field -->
                 <div class="mb-4">

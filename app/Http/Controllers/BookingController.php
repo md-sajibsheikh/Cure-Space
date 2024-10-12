@@ -26,24 +26,33 @@ class BookingController extends Controller
 
     public function bookingList()
     {
+        $data = Booking::with('user')->orderBy('created_at', 'desc')->get();
 
-        $data = Booking::with('user')->get();
         return view('backend.pages.bookingList', ['Book' => $data]);
     }
+
 
     public function accept($id)
     {
         $post = Booking::findOrFail($id);
         $post->status = 'accepted';
         $post->save();
+
+        Alert::success('Booking Accepted', 'The booking has been successfully accepted.');
+
         return redirect()->back();
     }
+
 
     public function reject($id)
     {
         $post = Booking::findOrFail($id);
         $post->status = 'rejected';
         $post->save();
+
+        Alert::error('Booking Rejected', 'The booking has been rejected.');
+
         return redirect()->back();
     }
+
 }

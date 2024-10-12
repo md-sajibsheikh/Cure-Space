@@ -11,7 +11,7 @@
                     <nav class="flex space-x-2 mt-1 text-gray-500">
                         <a href="#" class="hover:text-gray-900">Home</a>
                         <span>/</span>
-                        <span class="text-gray-800">Add chooose</span>
+                        <span class="text-gray-800">Add choose</span>
                     </nav>
                 </div>
             </div>
@@ -25,7 +25,7 @@
             <div class="bg-white shadow-xl rounded-lg overflow-hidden" style="margin-top: -200;">
                 <!-- Form Header -->
                 <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white px-6 py-4">
-                    <h3 class="text-lg font-semibold">Add choose</h3>
+                    <h3 class="text-lg font-semibold">Add Choose</h3>
                 </div>
 
                 <!-- Form start -->
@@ -35,7 +35,7 @@
                     <div>
                         <label for="imageUpload" class="block text-sm font-medium text-gray-700">Upload Image</label>
                         <div class="flex items-center mt-2">
-                            <input type="file" name="img" class="hidden" id="imageUpload" onchange="previewImage(event)">
+                            <input type="file" name="img" class="hidden" id="imageUpload" onchange="previewImage(event)" required>
                             <label for="imageUpload" class="block px-4 py-2 bg-gray-200 text-gray-700 cursor-pointer rounded-lg shadow-inner transition duration-200 ease-in-out transform hover:bg-gray-300">Choose file</label>
                         </div>
                         <!-- Image preview -->
@@ -45,13 +45,13 @@
                     <!-- Title Input -->
                     <div>
                         <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-                        <input type="text" name="title" class="form-control w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-200 ease-in-out" id="title" placeholder="Enter Title">
+                        <input type="text" name="title" class="form-control w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-200 ease-in-out" id="title" placeholder="Enter Title" required>
                     </div>
 
                     <!-- Subtitle Input -->
                     <div>
                         <label for="subtitle" class="block text-sm font-medium text-gray-700">Subtitle</label>
-                        <input type="text" name="subtitle" class="form-control w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-200 ease-in-out" id="subtitle" placeholder="Enter Subtitle">
+                        <input type="text" name="subtitle" class="form-control w-full mt-2 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:border-blue-500 transition duration-200 ease-in-out" id="subtitle" placeholder="Enter Subtitle" required>
                     </div>
 
                     <!-- Submit Button -->

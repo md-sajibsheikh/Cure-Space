@@ -31,11 +31,13 @@ class BlogController extends Controller
             $data['img'] = $imagePath;
         }
 
-        $data['date'] = $req->date;
+      
         $data['title'] = $req->title;
         $data['subtitle'] = $req->subtitle;
 
         Blog::create($data);
+        Alert::success('Success', 'Blog create successfully');
+
 
         return redirect()->route('all-blog');
     }
@@ -44,7 +46,7 @@ class BlogController extends Controller
 
     public function all_blog()
     {
-        $blogs = Blog::get();
+        $blogs = Blog::orderBy('created_at', 'desc')->get();
         return view('backend.pages.blog.all-blog', ['blogs' => $blogs]);
     }
 
@@ -77,11 +79,12 @@ class BlogController extends Controller
             $data['img'] = $blog->img;
         }
 
-        $data['date'] = $req->date;
         $data['title'] = $req->title;
         $data['subtitle'] = $req->subtitle;
 
         $blog->update($data);
+        Alert::success('Success', 'Blog update successfully');
+
 
         return redirect()->route('all-blog');
     }

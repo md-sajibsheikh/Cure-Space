@@ -56,9 +56,10 @@ class TeamController extends Controller
 
     public function team_list()
     {
-        $team = TeamAdded::get();
+        $team = TeamAdded::orderBy('created_at', 'desc')->get();
         return view('backend.pages.team-list', ['data' => $team]);
     }
+
     public function team_frondtend()
     {
         $team = TeamAdded::get();

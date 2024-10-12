@@ -58,17 +58,17 @@
                         <input type="hidden" name="user_id" value="{{Auth::user()->id ?? ''}}">
                         <div class="row gy-3 gx-4">
                             <div class="col-xl-6">
-                                <input type="text" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="First Name" name="name"> <!-- text color dark -->
+                                <input type="text" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="First Name" name="name" required> <!-- added required -->
                             </div>
 
                             <div class="col-xl-6">
-                                <input type="email" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="Email" name="email"> <!-- text color dark -->
+                                <input type="email" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="Email" name="email" required> <!-- added required -->
                             </div>
                             <div class="col-xl-6">
-                                <input type="phone" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="Phone" name="phone"> <!-- text color dark -->
+                                <input type="tel" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="Phone" name="phone" required> <!-- added required -->
                             </div>
                             <div class="col-xl-6">
-                                <select class="form-select py-3 border-primary bg-transparent text-dark" aria-label="Default select example" name="gender">
+                                <select class="form-select py-3 border-primary bg-transparent text-dark" aria-label="Default select example" name="gender" required> <!-- added required -->
                                     <option selected>Your Gender</option>
                                     <option value="Male">Male</option>
                                     <option value="FeMale">FeMale</option>
@@ -76,10 +76,10 @@
                                 </select>
                             </div>
                             <div class="col-xl-6">
-                                <input type="date" name="date" class="form-control py-3 border-primary bg-transparent text-dark"> <!-- text color dark -->
+                                <input type="date" name="date" class="form-control py-3 border-primary bg-transparent text-dark" required> <!-- added required -->
                             </div>
                             <div class="col-xl-6">
-                                <select class="form-select py-3 border-primary bg-transparent text-dark" aria-label="Default select example" name="department">
+                                <select class="form-select py-3 border-primary bg-transparent text-dark" aria-label="Default select example" name="department" required> <!-- added required -->
                                     <option selected>Department</option>
                                     <option value="Physiotherapy">Physiotherapy</option>
                                     <option value="Physical-Helth">Physical-Helth</option>
@@ -87,7 +87,7 @@
                                 </select>
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control border-primary bg-transparent text-dark" name="comments" id="area-text" cols="30" rows="5" placeholder="Write Comments"></textarea> <!-- text color dark -->
+                                <textarea class="form-control border-primary bg-transparent text-dark" name="comments" id="area-text" cols="30" rows="5" placeholder="Write Comments" required></textarea> <!-- added required -->
                             </div>
 
                             @if(Auth::check())
@@ -106,6 +106,8 @@
         </div>
     </div>
 </div>
+<!-- Book Appointment end -->
+
 <!-- Modal Video -->
 <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">

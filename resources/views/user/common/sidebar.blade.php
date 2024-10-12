@@ -66,7 +66,7 @@
 <div class="sidebar pe-4 pb-3">
     <nav class="navbar">
         <div class="d-flex align-items-center mb-4 ms-2">
-            <a href="{{ url('/user/home') }}" class="d-flex align-items-center text-decoration-none">
+            <a href="{{ url('/home') }}" class="d-flex align-items-center text-decoration-none">
                 <i class="fas fa-star-of-life"></i> <!-- Adjusted icon size -->
                 <span class="app-brand-text fw-bold">CureSpace</span> <!-- Adjusted text size -->
             </a>
