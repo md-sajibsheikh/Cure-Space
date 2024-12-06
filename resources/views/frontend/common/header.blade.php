@@ -10,7 +10,7 @@
             <span class="fa fa-bars"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <div class="navbar-nav ms-auto py-0">
+            <div class="navbar-nav ms-auto">
                 <a href="{{ route('index') }}" class="nav-item nav-link {{ request()->routeIs('index') ? 'active' : '' }}">Home</a>
                 <a href="{{ route('about') }}" class="nav-item nav-link {{ request()->routeIs('about') ? 'active' : '' }}">About</a>
                 <a href="{{ route('service') }}" class="nav-item nav-link {{ request()->routeIs('service') ? 'active' : '' }}">Services</a>
@@ -32,7 +32,7 @@
                 @else
                 <a href="{{ route('user') }}" class="nav-item nav-link {{ request()->routeIs('user') ? 'active' : '' }}">Dashboard</a>
                 @endif
-        
+
                 @else
                 <a href="{{ route('contact') }}" class="nav-item nav-link {{ request()->routeIs('contact') ? 'active' : '' }}">Contact Us</a>
                 @endif

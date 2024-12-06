@@ -3,33 +3,20 @@
 @section('main-content')
 <div class="content-wrapper bg-gray-100 min-h-screen p-4">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container mx-auto">
-            <div class="flex justify-between items-center mb-3">
-                <div></div>
-                <div>
-                    <nav class="flex space-x-2 mt-1 text-gray-500">
-                        <a href="#" class="hover:text-gray-900">Home</a>
-                        <span>/</span>
-                        <span class="text-gray-800">Add choose</span>
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </div>
+    
     <!-- /.content-header -->
 
     <!-- Main content section -->
     <div class="content">
-        <div class="container mx-auto mt-2">
-            <div class="bg-white shadow-xl rounded-lg overflow-hidden" style="margin-top: -200;">
+        <div class="container mx-auto ">
+            <div class="bg-white shadow-xl rounded-lg  overflow-hidden">
                 <!-- Form Header -->
-                <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white px-6 py-4">
+                <div class="bg-gradient-to-r from-indigo-500 to-blue-500 text-white px-8 py-4">
                     <h3 class="text-lg font-semibold">Add Choose</h3>
                 </div>
 
                 <!-- Form start -->
-                <form action="{{route('choose_store')}}" method="post" enctype="multipart/form-data" class="p-8 space-y-6">
+                <form action="{{route('choose_store')}}" method="post" enctype="multipart/form-data" class="p-6">
                     @csrf
                     <!-- Image Upload -->
                     <div>

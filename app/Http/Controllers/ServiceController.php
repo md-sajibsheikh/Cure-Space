@@ -37,6 +37,7 @@ class ServiceController extends Controller
 
         $data = [
             'service_name' => $req->service_name,
+            'service_fee'=>$req->service_fee,
             'title' => $req->title,
             'img' => $imagePath,
         ];
@@ -71,6 +72,7 @@ class ServiceController extends Controller
                 $service->img = $imagePath;
             }
             $service->service_name = $req->service_name;
+            $service->service_fee = $req->service_fee;
             $service->title = $req->title;
             $service->save();
             Alert::success('Success', 'Service updated successfully');

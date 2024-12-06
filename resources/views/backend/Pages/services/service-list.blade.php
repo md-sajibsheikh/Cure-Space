@@ -12,6 +12,7 @@
                     <tr>
                         <th class="py-2 px-4 border">Image</th>
                         <th class="py-2 px-4 border">Service Name</th>
+                        <th class="py-2 px-4 border">Service Fee</th>
                         <th class="py-2 px-4 border">Title</th>
                         <th class="py-2 px-4 border">Action</th>
                     </tr>
@@ -23,6 +24,7 @@
                             <img src="{{ asset($data->img) }}" alt="Service Image" class="h-12 w-12 rounded mx-auto">
                         </td>
                         <td class="py-2 px-4 border break-words">{{ $data->service_name }}</td>
+                        <td class="py-2 px-4 border break-words">{{ $data->service_fee }}</td>
                         <td class="py-2 px-4 border break-words">{{ $data->title }}</td>
                         <td class="py-2 px-4 border text-center">
                             <div class="flex items-center justify-center space-x-2">

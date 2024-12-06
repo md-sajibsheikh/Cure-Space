@@ -49,6 +49,15 @@
 
                 <ul class="menu-inner py-1">
                     <!-- Sidebar Items -->
+
+                    <li class="menu-item">
+                        <a href="{{route('index')}}" class="menu-link flex items-center text-white">
+                            <i class="fa-solid fa-right-to-bracket"></i>
+                            <div class="text-truncate font-bold ml-2" style="font-size: 20px;">Go Home</div>
+                        </a>
+                    </li>
+
+
                     <li class="menu-item">
                         <a href="{{route('admin')}}" class="menu-link flex items-center text-sky-400">
                             <i class="fas fa-tachometer-alt text-xl mr-2"></i>

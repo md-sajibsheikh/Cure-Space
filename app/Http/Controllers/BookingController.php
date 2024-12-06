@@ -8,21 +8,35 @@ use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class BookingController extends Controller
+
 {
     public function bookingData(Request $req)
     {
-        $data['name'] = $req->name;
-        $data['email'] = $req->email;
-        $data['phone'] = $req->phone;
-        $data['gender'] = $req->gender;
-        $data['date'] = $req->date;
-        $data['department'] = $req->department;
-        $data['comments'] = $req->comments;
-        $data['user_id'] = $req->user_id;
+        $data = [
+            'name' => $req->name,
+            'email' => $req->email,
+            'phone' => $req->phone,
+            'gender' => $req->gender,
+            'date' => $req->date,
+            'comments' => $req->comments, 
+            'department' => $req->department,
+            'shift' => $req->shift,
+            'service_fee' => $req->service_fee,
+            'method' => $req->method,
+            'pay_number' => $req->pay_number,
+            'transaction_id' => $req->transaction_id,
+            'user_id' => $req->user_id,
+
+        ];
+
+
+
         Booking::create($data);
+
         Alert::success('Success', 'Your booking is confirmed');
         return redirect()->back();
     }
+
 
     public function bookingList()
     {
@@ -54,5 +68,4 @@ class BookingController extends Controller
 
         return redirect()->back();
     }
-
 }

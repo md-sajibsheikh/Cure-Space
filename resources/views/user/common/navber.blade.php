@@ -5,7 +5,7 @@
             <h2 class=" mb-0"><i class="fa fa-hashtag"></i></h2>
         </a>
         <a href="#" class="sidebar-toggler flex-shrink-0">
-            <i class="fa fa-bars"></i>
+            <i class="fa fa-bars  "></i>
         </a>
 
         <div class="navbar-nav align-items-center ms-auto">

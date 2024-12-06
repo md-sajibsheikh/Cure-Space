@@ -44,6 +44,8 @@
 
     <!-- Config -->
     <script src="{{ asset('backend/assets/js/config.js') }}"></script>
+    
+    
 
     <style>
         #logo {

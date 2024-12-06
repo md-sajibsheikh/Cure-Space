@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AboutUpdate;
 use App\Models\Blog;
+use App\Models\Booking;
 use App\Models\ContactUpdate;
 use App\Models\Feedback;
 use App\Models\HomeUpdate;
@@ -24,6 +25,9 @@ class HomeController extends Controller
         $contact = ContactUpdate::get();
         $about = AboutUpdate::get();
         $feedback = Feedback::get();
+        $book_data=Booking::get();
+        $bookings = Booking::get();
+        
         return view('frontend.pages.index', [
             'data' => $services,
             'team' => $teams,
@@ -33,6 +37,9 @@ class HomeController extends Controller
             'contactdata' => $contact,
             'about' => $about,
             'feedbacks' => $feedback,
+            'datas' => $services,
+            'book'=> $book_data,
+            'booking'=> $bookings
         ]);
     }
 }

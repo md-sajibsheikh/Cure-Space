@@ -17,9 +17,14 @@ return new class extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('gender');
-            $table->string('date');
+            $table->string('date'); 
             $table->string('department');
+            $table->string('shift');
+            $table->string('service_fee');
             $table->text('comments');
+            $table->string('method');
+            $table->string('pay_number');
+            $table->string('transaction_id');
             $table->enum('status', ['pending', 'accepted', 'rejected'])->default('pending');
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->timestamps();

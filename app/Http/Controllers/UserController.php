@@ -24,8 +24,8 @@ class UserController extends Controller
         $req->validate([
             'name' => 'required|regex:/^[a-zA-Z\s]+$/|string',
             'email' => 'required|email|unique:users,email|',
-            'phone' => 'required|numeric|digits_between:9,13',
-            'password' => 'required|min:8|confirmed',
+            'phone' => 'required|numeric|digits_between:9,14',
+            'password' => 'required|min:6|confirmed',
             'img' => 'nullable|image|mimes:jpg,jpeg,png,gif',
         ]);
         if (!is_dir(public_path('form/img/profile/'))) {

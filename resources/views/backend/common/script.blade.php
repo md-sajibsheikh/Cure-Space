@@ -37,6 +37,33 @@
      }
  </script>
 
+ <script>
+     const modal = document.getElementById('my_modal_2');
+
+     // Function to open the modal
+     function openModal() {
+         modal.classList.remove('hidden'); // Show the modal by removing the 'hidden' class
+     }
+
+     // Function to close the modal
+     function closeModal() {
+         modal.classList.add('hidden'); // Hide the modal by adding the 'hidden' class
+     }
+
+     // Close the modal when clicking outside the modal box
+     modal.addEventListener('click', function(event) {
+         if (event.target === modal) {
+             closeModal();
+         }
+     });
+
+     // Close the modal when pressing the ESC key
+     window.addEventListener('keydown', function(event) {
+         if (event.key === 'Escape') {
+             closeModal();
+         }
+     });
+ </script>
 
 
  <!-- m -->

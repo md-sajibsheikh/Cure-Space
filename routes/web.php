@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-
+Route::get('/check-shift-times', [HomeController::class, 'checkShiftTimes']);
 
 
 //  user
@@ -69,7 +69,7 @@ Route::post('/admin/bookingList/accept/{id}', [BookingController::class, 'accept
 Route::post('/admin/bookingList/reject{id}', [BookingController::class, 'reject'])->name('posts.reject');
 //frontend team
 Route::get('/team-show', [TeamController::class, 'team_frontend']);
-
+Route::get('/check-booking', [BookingController::class, 'checkBooking']);
 // admin services frontend 
 Route::get('profile', [ProfileController::class, 'profile'])->name('profile');
 Route::post('admin/profile/update/{id}', [ProfileController::class, 'update'])->name('user.profile.update');

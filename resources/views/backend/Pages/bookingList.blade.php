@@ -18,6 +18,8 @@
                         <th class="py-3 px-4 bg-gray-100 border-b border-gray-200 text-left text-sm font-semibold text-gray-700">User Name & Email</th>
                         <th class="py-3 px-4 bg-gray-100 border-b border-gray-200 text-left text-sm font-semibold text-gray-700">Patient Name</th>
                         <th class="py-3 px-4 bg-gray-100 border-b border-gray-200 text-left text-sm font-semibold text-gray-700">Email</th>
+                        <th class="py-3 px-4 bg-gray-100 border-b border-gray-200 text-left text-sm font-semibold text-gray-700">Shift</th>
+                        <th class="py-3 px-4 bg-gray-100 border-b border-gray-200 text-left text-sm font-semibold text-gray-700">Payment Details</th>
                         <th class="py-3 px-4 bg-gray-100 border-b border-gray-200 text-left text-sm font-semibold text-gray-700">Phone</th>
                         <th class="py-3 px-4 bg-gray-100 border-b border-gray-200 text-left text-sm font-semibold text-gray-700">Gender</th>
                         <th class="py-3 px-4 bg-gray-100 border-b border-gray-200 text-left text-sm font-semibold text-gray-700">Date</th>
@@ -34,6 +36,22 @@
                         <td class="py-4 px-4 text-center">{{$data->user->name}} <br>{{$data->user->email}}</td>
                         <td class="py-4 px-4 text-center">{{$data->name}}</td>
                         <td class="py-4 px-4 text-center">{{$data->email}}</td>
+                        <td class="py-4 px-4 text-center">{{$data->shift}}</td>
+                        <td class="py-4 px-10 ">
+                            @if($data->service_fee == 0)
+                            Free
+                            @else
+                            Fee:{{$data->service_fee}} BDT<br>
+
+                            Method:{{$data->method}}<br>
+
+                            Number:{{$data->pay_number}}<br>
+
+                            TrxId:{{$data->transaction_id}}
+                            @endif
+                        </td>
+
+
                         <td class="py-4 px-4 text-center">{{$data->phone}}</td>
                         <td class="py-4 px-4 text-center">{{$data->gender}}</td>
                         <td class="py-4 px-4 text-center">{{$data->date}}</td>
@@ -53,12 +71,14 @@
                                 @if ($data->status !== 'accepted')
                                 <form action="{{ route('posts.accept', $data->id) }}" method="POST">
                                     @csrf
+                                    @method('POST')
                                     <button type="submit" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded shadow-sm text-sm">Accept</button>
                                 </form>
                                 @endif
                                 @if ($data->status !== 'rejected')
                                 <form action="{{ route('posts.reject', $data->id) }}" method="POST">
                                     @csrf
+                                    @method('POST')
                                     <button type="submit" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded shadow-sm text-sm">Reject</button>
                                 </form>
                                 @endif
@@ -70,6 +90,7 @@
             </table>
         </div>
     </div>
+
 </body>
 
 @endsection

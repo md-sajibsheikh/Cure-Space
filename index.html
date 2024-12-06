@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Booking Form</title>
+  <style>
+    .step { display: none; }
+    .step.active { display: block; }
+    
+    /* Center and space out the buttons in Step 2 */
+    .button-container {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Step 1: Booking Information -->
+<form id="bookingForm">
+  <div id="step1" class="step active">
+    <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.4s">
+      <div class="appointment-form rounded p-5"> <!-- sky-200 color -->
+        <p class="fs-4 text-uppercase text-primary">Get In Touch</p>
+        <h1 class="display-5 mb-4 text-dark">Get Appointment</h1> <!-- text color dark -->
+        <!-- Booking Form -->
+        <div class="row gy-3 gx-4">
+          <!-- Full Name -->
+          <div class="col-xl-6">
+            <input type="text" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="Full Name" name="name" required>
+          </div>
+
+          <!-- Email -->
+          <div class="col-xl-6">
+            <input type="email" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="Email" name="email" required>
+          </div>
+
+          <!-- Phone Number -->
+          <div class="col-xl-6">
+            <input type="tel" class="form-control py-3 border-primary bg-transparent text-dark" placeholder="Phone" name="phone" required>
+          </div>
+
+          <!-- Gender -->
+          <div class="col-xl-6">
+            <select class="form-select py-3 border-primary bg-transparent text-dark" aria-label="Default select example" name="gender" required>
+              <option selected>Your Gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+              <option value="Others">Others</option>
+            </select>
+          </div>
+
+          <!-- Date -->
+          <div class="col-xl-6">
+            <input type="date" name="date" class="form-control py-3 border-primary bg-transparent text-dark" required>
+          </div>
+
+          <!-- Department -->
+          <div class="col-xl-6">
+            <select class="form-select py-3 border-primary bg-transparent text-dark" aria-label="Default select example" name="department" required>
+              <option selected>Department</option>
+              <option value="Physiotherapy">Physiotherapy</option>
+              <option value="Physical-Health">Physical-Health</option>
+              <option value="Treatments">Treatments</option>
+            </select>
+          </div>
+
+          <!-- Comments -->
+          <div class="col-12">
+            <textarea class="form-control border-primary bg-transparent text-dark" name="comments" id="area-text" cols="30" rows="5" placeholder="Write Comments" required></textarea>
+          </div>
+
+          <!-- Next Step Button -->
+          <div class="col-12">
+            <button type="button" class="btn btn-primary text-white w-100 py-3 px-5" onclick="goToNextStep()">Next Step: Payment</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Step 2: Payment Options -->
+  <div id="step2" class="step">
+    <h2>Step 2: Payment</h2>
+
+    <label for="paymentMethod">Select Payment Method:</label><br>
+    <input type="radio" id="bkash" name="paymentMethod" value="bkash">
+    <label for="bkash">Bikash</label><br>
+
+    <input type="radio" id="nagad" name="paymentMethod" value="nagad">
+    <label for="nagad">Nagad</label><br>
+
+    <input type="radio" id="ajerno" name="paymentMethod" value="ajerno">
+    <label for="ajerno">Ajerno</label><br><br>
+
+    <label for="trxId">Transaction ID:</label>
+    <input type="text" id="trxId" name="trxId" required><br><br>
+
+    <!-- Button container for "Previous" and "Submit" buttons -->
+    <div class="button-container">
+      <!-- Previous Step Button -->
+      <button type="button" class="btn btn-secondary text-white py-3 px-5" onclick="goToPreviousStep()">Previous Step</button>
+
+      <!-- Submit Payment Button -->
+      <button type="submit" class="btn btn-primary text-white py-3 px-5">Submit Payment</button>
+    </div>
+  </div>
+</form>
+
+<script>
+  // Function to move to the next step
+  function goToNextStep() {
+    // Validate Step 1 before proceeding
+    const name = document.querySelector('input[name="name"]').value;
+    const email = document.querySelector('input[name="email"]').value;
+    const phone = document.querySelector('input[name="phone"]').value;
+    const gender = document.querySelector('select[name="gender"]').value;
+    const date = document.querySelector('input[name="date"]').value;
+    const department = document.querySelector('select[name="department"]').value;
+    const comments = document.querySelector('textarea[name="comments"]').value;
+
+    // Check if all required fields are filled
+    if (!name || !email || !phone || !gender || !date || !department || !comments) {
+      alert("Please fill out all the fields in Step 1.");
+      return false; // Prevent form submission
+    }
+
+    // Hide step1 and show step2
+    document.getElementById('step1').classList.remove('active');
+    document.getElementById('step2').classList.add('active');
+  }
+
+  // Function to go back to the previous step
+  function goToPreviousStep() {
+    document.getElementById('step2').classList.remove('active');
+    document.getElementById('step1').classList.add('active');
+  }
+
+  // Handle the form submission (if needed)
+  document.getElementById('bookingForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form from submitting the usual way
+    alert('Form submitted successfully!');
+  });
+</script>
+
+</body>
+</html>
